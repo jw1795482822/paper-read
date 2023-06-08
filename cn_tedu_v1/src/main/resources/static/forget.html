@@ -24,7 +24,7 @@
                 </el-col>
                 <el-col span="6"></el-col>
                 <el-col span="6" style="position: absolute ;top: 5px;right: 5px">
-                    <a href="">登录账号</a>
+                    <a href="login.html">登录账号</a>
                 </el-col>
             </el-row>
         </el-header>
@@ -37,10 +37,12 @@
                         <el-input placeholder="请输入用户名" v-model="user.username"></el-input>
                     </el-form-item>
                     <el-form-item class="a" label="新密码">
-                        <el-input type="password" placeholder="请输入密码" v-model="user.password"></el-input>
+                        <el-input type="password" placeholder="新密码包含字母和数字,长度在6到16个"
+                                  v-model="user.password"></el-input>
                     </el-form-item>
                     <el-form-item class="a" label="输入密码">
-                        <el-input type="password" placeholder="请输入密码" v-model="user.secondPassword"></el-input>
+                        <el-input type="password" placeholder="两次密码保持一致"
+                                  v-model="user.secondPassword"></el-input>
                     </el-form-item>
                     <el-form-item class="a" label="密保问题">
                         <!--event.target.value给下拉框选项用value复制给变量-->
@@ -121,27 +123,33 @@
                         v.user.question.length === 0 || v.user.answer.length === 0
                     ) {
                         v.$message.error("选项不能为空");
-                    } else {
-                        axios.post("/v1/users/forget", v.user).then((function (response) {
-
-                            switch (response.data.code) {
-                                case 1000:
-                                    alert("验证成功,请登录!")
-                                    /*跳转到登录页*/
-                                    location.href = "login.html";
-                                    break;
-                                case 1004:
-                                    v.$message.error("验证失败,还有2次机会!")
-                                    break;
-                                case 1005:
-                                    v.$message.error("验证失败,还有1次机会!")
-                                    break;
-                                case 1006:
-                                    v.$message.error("验证失败,今日已无机会,明日再来!")
-                                    break;
-                            }
-                        }));
+                        return;
                     }
+                    let regex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,16}$/;
+                    if (!regex.test(v.user.password)) {
+                        v.$message.error("用户名格式不正确");
+                        return;
+                    }
+                    axios.post("/v1/users/forget", v.user).then((function (response) {
+
+                        switch (response.data.code) {
+                            case 1000:
+                                alert("验证成功,请登录!")
+                                /*跳转到登录页*/
+                                location.href = "login.html";
+                                break;
+                            case 1004:
+                                v.$message.error("验证失败,还有2次机会!")
+                                break;
+                            case 1005:
+                                v.$message.error("验证失败,还有1次机会!")
+                                break;
+                            case 1006:
+                                v.$message.error("验证失败,今日已无机会,明日再来!")
+                                break;
+                        }
+                    }));
+
                 } else {
                     v.$message.error("两次密码不一致请重新填写!");
                     return;

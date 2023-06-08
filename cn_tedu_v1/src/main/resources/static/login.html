@@ -23,7 +23,7 @@
                 </el-col>
                 <el-col span="6"></el-col>
                 <el-col span="6" style="position: absolute ;top: 5px;right: 5px">
-                    <a href="">注册账号</a>
+                    <a href="reg.html">注册账号</a>
                 </el-col>
             </el-row>
         </el-header>
@@ -32,14 +32,14 @@
                     background-position: center">
             <el-card style="width: 500px;height: 500px;margin: 50px auto;float: right;background-color:#666666 ">
                 <el-form label-width="80px" style="width: 400px;margin: 50px 10px 50px; ">
-                    <el-form-item class="a" label="用户名">
+                    <el-form-item  class="a" label="用户名">
                         <el-input placeholder="请输入用户名" v-model="user.username"></el-input>
                     </el-form-item>
                     <el-form-item class="a" label="密码">
-                        <el-input type="password" placeholder="请输入密码" v-model="user.password"></el-input>
+                        <el-input @keydown.native.enter="login()" type="password" placeholder="请输入密码" v-model="user.password"></el-input>
                     </el-form-item>
                     <el-form-item>
-                        <el-button type="primary" @click="login()">登录</el-button>
+                        <el-button type="primary"  @click="login()">登录</el-button>
                         <a href="forget.html">忘记密码</a>
                     </el-form-item>
                 </el-form>
@@ -102,6 +102,7 @@
                     v.$message.error("选项不能为空");
                     return;
                 }
+
                 axios.post("/v1/users/login", v.user).then((function (response) {
                     if (response.data.code == 1000) {
                         v.$message.success("登录成功");

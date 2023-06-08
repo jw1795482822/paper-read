@@ -3,22 +3,17 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tedu.cn_tedu_v1.userv1.mapper.SecurityMapper">
-    <update id="SecurityUpdate">
-        UPDATE bookv1.security_v1
-        SET question=#{question},answer=#{answer}
-        WHERE userId = (SELECT id FROM bookv1.user_v1 WHERE username =#{username})
-    </update>
 
     <select id="SecurityBySecurity" resultType="cn.tedu.cn_tedu_v1.userv1.pojo.entiy.Security">
-        SELECT id,question,answer,userId
-        FROM security_v1
-        WHERE userId = (SELECT id FROM user_v1 WHERE username =#{username})
+        SELECT id,question,answer,user_id
+        FROM security
+        WHERE user_id = (SELECT id FROM user WHERE user_name =#{username})
     </select>
 
     <update id="passwordUpdate">
-        UPDATE bookv1.user_v1
+        UPDATE user
         SET password=#{password}
-        WHERE username=#{username}
+        WHERE user_name=#{username}
     </update>
 
 </mapper>

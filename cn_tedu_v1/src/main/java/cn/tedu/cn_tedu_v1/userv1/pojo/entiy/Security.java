@@ -9,8 +9,8 @@ import lombok.Data;
 
 @Data
 public class Security {
-    private Integer id;
+    private Long id;
     private String question;
     private String answer;
-    private Integer userId;
+    private Long userId;
 }

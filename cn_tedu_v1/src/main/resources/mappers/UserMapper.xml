@@ -3,14 +3,23 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tedu.cn_tedu_v1.userv1.mapper.UserMapper">
-    <insert id="insert">
-        INSERT INTO bookv1.user_v1
-        VALUES (NULL,#{username},#{nickname},#{password},#{question},#{admin})
+    <insert id="insert" parameterType="cn.tedu.cn_tedu_v1.userv1.pojo.entiy.User"
+            useGeneratedKeys="true"  keyProperty="id">
+        INSERT INTO user (id,user_name,nick_name,password,admin,create_time,user_id)
+        VALUES (NULL,#{username},#{nickname},#{password},#{admin},#{createTime},#{userId})
+    </insert>
+
+    <insert id="insertSecurity" parameterType="cn.tedu.cn_tedu_v1.userv1.pojo.entiy.Security">
+        INSERT INTO security (id, question, answer, user_id)
+        VALUES (NULL, #{question}, #{answer}, #{userId});
+
     </insert>
 
     <select id="selectByUserName" resultType="cn.tedu.cn_tedu_v1.userv1.pojo.vo.UserVO">
-        SELECT id,password,nickname,admin
-        FROM bookv1.user_v1
-        WHERE username =#{username}
+        SELECT id,password,nick_name,admin
+        FROM user
+        WHERE user_name =#{username}
     </select>
+
+
 </mapper>

@@ -67,7 +67,7 @@ public class GlobalExceptionHandler {
         //判断当前异常是否属于用户名不存在异常
         if (e instanceof InternalAuthenticationServiceException){
             log.warn("用户名不存在!");
-            return new ResultVO(StatusCode.REPEAT_USER);
+            return new ResultVO(StatusCode.USER_NOT_EXIST_ERROR);
         }
             log.warn("密码错误!");
         return new ResultVO(StatusCode.PASSWORD_ERROR);

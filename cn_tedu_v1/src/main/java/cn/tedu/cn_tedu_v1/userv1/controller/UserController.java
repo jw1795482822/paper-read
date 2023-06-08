@@ -1,6 +1,7 @@
 package cn.tedu.cn_tedu_v1.userv1.controller;
 
 
+import cn.tedu.cn_tedu_v1.userv1.SnowflakeIdGenerator;
 import cn.tedu.cn_tedu_v1.userv1.mapper.SecurityMapper;
 import cn.tedu.cn_tedu_v1.userv1.mapper.UserMapper;
 import cn.tedu.cn_tedu_v1.userv1.pojo.dto.SecurityDTO;
@@ -20,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -53,13 +55,26 @@ public class UserController {
         }
         User user = new User();
         BeanUtils.copyProperties(userRegDTO, user);
+        user.setCreateTime(new Date());
+        //生成用户ID
+        SnowflakeIdGenerator idGenerator = new SnowflakeIdGenerator(1, 1);
+        user.setUserId(idGenerator.nextId());
         user.setAdmin("user");
 
         //让密码加密
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userMapper.insert(user);
-        securityMapper.SecurityUpdate(userRegDTO);
+
+        System.out.println("userRegDTO = " + userRegDTO);
+
+        //密保问题答案插入
+        Long userId = user.getId();
+        Security security = new Security();
+        BeanUtils.copyProperties(userRegDTO,security);
+        security.setUserId(userId);
+        System.out.println(security);
+        userMapper.insertSecurity(security);
         return new ResultVO(StatusCode.SUCCESS);
 
         /*UserVO userVO = userMapper.selectByUserName(userRegDTO.getUsername());
