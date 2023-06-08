@@ -18,6 +18,12 @@
     </properties>
     <dependencies>
 
+        <!-- Spring Boot支持Spring Security的依赖项，用于处理认证与授权 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

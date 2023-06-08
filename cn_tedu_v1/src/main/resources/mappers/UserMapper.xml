@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.cn_tedu_v1.userv1.mapper.UserMapper">
+    <insert id="insert">
+        INSERT INTO bookv1.user_v1
+        VALUES (NULL,#{username},#{nickname},#{password},#{question},#{admin})
+    </insert>
 
+    <select id="selectByUserName" resultType="cn.tedu.cn_tedu_v1.userv1.pojo.vo.UserVO">
+        SELECT id,password,nickname,admin
+        FROM bookv1.user_v1
+        WHERE username =#{username}
+    </select>
 </mapper>
-
-
-
-
-
-
-
-
-
-

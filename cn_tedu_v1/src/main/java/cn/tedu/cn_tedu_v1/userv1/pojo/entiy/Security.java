@@ -1,0 +1,16 @@
+package cn.tedu.cn_tedu_v1.userv1.pojo.entiy;
+
+import lombok.Data;
+
+/**
+ * Author = bianmy
+ * DATE = 2023/5/19 21:35
+ */
+
+@Data
+public class Security {
+    private Integer id;
+    private String question;
+    private String answer;
+    private Integer userId;
+}
