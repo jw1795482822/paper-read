@@ -5,8 +5,8 @@
 <mapper namespace="cn.tedu.cn_tedu_v1.userv1.mapper.UserMapper">
     <insert id="insert" parameterType="cn.tedu.cn_tedu_v1.userv1.pojo.entiy.User"
             useGeneratedKeys="true"  keyProperty="id">
-        INSERT INTO user (id,user_name,nick_name,password,admin,create_time,user_id)
-        VALUES (NULL,#{username},#{nickname},#{password},#{admin},#{createTime},#{userId})
+        INSERT INTO user (id,user_name,nick_name,password,admin,create_time,user_id,e_mail)
+        VALUES (NULL,#{username},#{nickname},#{password},#{admin},#{createTime},#{userId},#{email})
     </insert>
 
     <insert id="insertSecurity" parameterType="cn.tedu.cn_tedu_v1.userv1.pojo.entiy.Security">

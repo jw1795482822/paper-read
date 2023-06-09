@@ -19,7 +19,9 @@ public enum StatusCode {
     QUESTION_ERROR(1006, "密保验证次数以达到今日上线,请明天尝试登录!"),
     REPEAT_USER(1007, "您当用户名已存在,请重新注册!"),
     FORBIDDEN_ERROR(1008,"无权访问"),
-    USER_NOT_EXIST_ERROR(1009,"用户不存在");
+    USER_NOT_EXIST_ERROR(1009,"用户不存在"),
+    VERIFICATION_ERROR(1010, "验证码错误,请重新输入");
+
 
     private int code;
     private String misDescription;

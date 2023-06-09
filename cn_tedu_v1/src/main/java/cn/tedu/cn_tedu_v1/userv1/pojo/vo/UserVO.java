@@ -2,6 +2,8 @@ package cn.tedu.cn_tedu_v1.userv1.pojo.vo;
 
 import lombok.Data;
 
+import javax.validation.constraints.Email;
+
 /**
  * 获取登录信息的类
  */
@@ -12,4 +14,6 @@ public class UserVO {
     private String password;
     private String nickname;
     private String admin;
+//    @Email
+//    private String email;
 }
