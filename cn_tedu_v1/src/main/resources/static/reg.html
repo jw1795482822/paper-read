@@ -181,12 +181,12 @@
                     return;
                 }
                 axios.post("/v1/users/reg", v.user).then((function (response) {
-
                     if (response.data.code == 1000) {
+
                         v.$message.success("注册成功");
                         location.href = "/";
-                    } else if (response.data.code == 1007) {
-                        v.$message.error("您当用户名已存在,请重新注册!")
+                    } else  {
+                        alert(response.data.misDescription)
                     }
                 }))
 

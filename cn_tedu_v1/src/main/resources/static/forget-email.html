@@ -37,7 +37,7 @@
                         <el-input placeholder="填写正确格式" v-model="user.email"></el-input>
                         <button type="button" id="send-code-btn" @click="send()">发送验证码</button>
                     </el-form-item>
-                    <el-form-item  class="a" label="验证码">
+                    <el-form-item class="a" label="验证码">
                         <el-input placeholder="填写邮箱验证码" v-model="user.code"></el-input>
                     </el-form-item>
 
@@ -102,7 +102,7 @@
         data: function () {
             return {
                 user: {
-                    password: "", secondPassword: "",email:"",code:""
+                    password: "", secondPassword: "", email: "", code: ""
                 }
 
             }
@@ -125,7 +125,7 @@
                 axios.get("/v1/users/send?email=" + v.user.email).then(function (response) {
                     if (response.data.code == 1000) {
                         v.$message.success("发送验证码成功");
-                    }else {
+                    } else {
                         alert("发送验证码失败");
                         return;
                     }
@@ -137,7 +137,7 @@
 
                 // 开始倒计时
                 var count = 120;
-                var timer = setInterval(function() {
+                var timer = setInterval(function () {
                     count--;
                     btn.innerHTML = count + '秒后重新发送';
                     if (count == 0) {
@@ -158,29 +158,15 @@
                         return;
                     }
 
-                    axios.post("/v1/users/forget", v.user).then((function (response) {
-
-                        switch (response.data.code) {
-                            case 1000:
-                                alert("验证成功,请登录!")
-                                /*跳转到登录页*/
-                                location.href = "login.html";
-                                break;
-                            case 1004:
-                                v.$message.error("验证失败,还有2次机会!")
-                                break;
-                            case 1005:
-                                v.$message.error("验证失败,还有1次机会!")
-                                break;
-                            case 1006:
-                                v.$message.error("验证失败,今日已无机会,明日再来!")
-                                break;
+                    axios.post("/v1/users/forget-email", v.user).then((function (response) {
+                        if (response.data.code == 1000) {
+                            v.$message.success("修改成功,请注意邮箱查收");
+                        }else {
+                            v.$message.error(response.data.misDescription);
                         }
+
                     }));
 
-                } else {
-                    v.$message.error("两次密码不一致请重新填写!");
-                    return;
                 }
 
 

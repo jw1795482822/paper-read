@@ -28,7 +28,7 @@ public class ResultVO {
     public ResultVO(Object data) {
         this.data = data;
         this.code=StatusCode.SUCCESS.getCode();
-        this.misDescription=StatusCode.SUCCESS.getMisDescription();
+        this.misDescription=StatusCode.SUCCESS.getMsg();
     }
     //编码,编码内容
     public ResultVO(int code,String misDescription){
@@ -38,7 +38,7 @@ public class ResultVO {
     /**通过构造方法对属性初始化*/
     public ResultVO(StatusCode statusCode){
         this.code=statusCode.getCode();
-        this.misDescription=statusCode.getMisDescription();
+        this.misDescription=statusCode.getMsg();
     }
     /**通过构造方法对象属性初始化*/
     public ResultVO(StatusCode statusCode,Object data){

@@ -22,17 +22,18 @@ public enum StatusCode {
     USER_NOT_EXIST_ERROR(1009,"用户不存在"),
     VERIFICATION_ERROR(1010, "验证码错误,请重新输入"),
     EMAIL_EXISTS_ERROR(1011, "电子邮箱账户存在,请重新输入"),
-    SEND_ERROR(1012, "验证码发送失败");
+    SEND_ERROR(1012, "验证码发送失败"),
+    NOT_EMAIL_ERROR(1013, "邮箱不存在");
 
 
     private int code;
-    private String misDescription;
+    private String msg;
 
     StatusCode(){}
 
-    StatusCode(int code, String description) {
+    StatusCode(int code, String msg) {
         this.code = code;
-        this.misDescription = description;
+        this.msg = msg;
     }
 
 

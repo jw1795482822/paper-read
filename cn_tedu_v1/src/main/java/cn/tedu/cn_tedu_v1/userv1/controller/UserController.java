@@ -2,13 +2,15 @@ package cn.tedu.cn_tedu_v1.userv1.controller;
 
 
 import cn.tedu.cn_tedu_v1.userv1.SnowflakeIdGenerator;
-import cn.tedu.cn_tedu_v1.userv1.exception.GlobalExceptionHandler;
+import cn.tedu.cn_tedu_v1.userv1.mapper.EmailForGetMapper;
 import cn.tedu.cn_tedu_v1.userv1.mapper.SecurityMapper;
 import cn.tedu.cn_tedu_v1.userv1.mapper.UserMapper;
+import cn.tedu.cn_tedu_v1.userv1.pojo.dto.EmailDTO;
 import cn.tedu.cn_tedu_v1.userv1.pojo.dto.SecurityDTO;
 import cn.tedu.cn_tedu_v1.userv1.pojo.dto.UserRegDTO;
 import cn.tedu.cn_tedu_v1.userv1.pojo.entiy.Security;
 import cn.tedu.cn_tedu_v1.userv1.pojo.entiy.User;
+import cn.tedu.cn_tedu_v1.userv1.pojo.vo.EmailForGetVO;
 import cn.tedu.cn_tedu_v1.userv1.pojo.vo.UserVO;
 import cn.tedu.cn_tedu_v1.userv1.response.ResultVO;
 import cn.tedu.cn_tedu_v1.userv1.response.StatusCode;
@@ -74,9 +76,11 @@ public class UserController {
     public ResultVO insert(@RequestBody UserRegDTO userRegDTO, HttpSession httpSession) {
         System.out.println("userRegDTO = " + userRegDTO.getCode() + ", httpSession = " + httpSession.getAttribute("code"));
         //判断邮箱是否存在
+        System.out.println("userRegDTO = " + userRegDTO );
         if (userMapper.selectByEmail(userRegDTO.getEmail()) != 0) {
             return new ResultVO(StatusCode.EMAIL_EXISTS_ERROR);
         }
+
         //判断验证码与缓存的验证码是否一致
         if (!userRegDTO.getCode().equals(String.valueOf(httpSession.getAttribute("code")))) {
             return new ResultVO(StatusCode.VERIFICATION_ERROR);
@@ -184,9 +188,32 @@ public class UserController {
         return ForgetThePassword(verification.decrementAndGet());
     }
 
+
+    @Autowired
+    private EmailForGetMapper emailForGetMapper;
     //忘记密码邮箱修改密码业务逻辑
-//    @PostMapping("forget-email")
-//    public ResultVO forgetEmail()
+    @PostMapping("forget-email")
+    public ResultVO forgetEmail(@RequestBody EmailDTO emailDTO,HttpSession session) {
+        System.out.println("emailDTO = " + emailDTO);
+        EmailForGetVO emailForGetVO = emailForGetMapper.selectByEmail(emailDTO.getEmail());
+        if (emailForGetVO == null) {
+            return new ResultVO(StatusCode.NOT_EMAIL_ERROR);
+        }
+        //判断验证码与缓存的验证码是否一致
+        if (!emailDTO.getCode().equals(String.valueOf(session.getAttribute("code")))) {
+            return new ResultVO(StatusCode.VERIFICATION_ERROR);
+        }
+
+        //加密密码
+        emailDTO.setPassword(passwordEncoder.encode(emailDTO.getPassword()));
+        emailForGetMapper.updateByEmail(emailDTO);
+
+        sendUserName(emailForGetVO.getEmail(),emailForGetVO.getUserName());
+
+        return new ResultVO(StatusCode.SUCCESS,emailForGetVO);
+    }
+
+
 
 
     //登陆状态检查--检查用户进入网站后是否登录--展示首页页面不同
@@ -194,6 +221,19 @@ public class UserController {
     public UserVO currentUser(HttpSession session) {
         UserVO userVO = (UserVO) session.getAttribute("user");
         return userVO;
+    }
+
+    public void sendUserName(String toEmail,String userName) {
+        System.out.println("toEmail = " + toEmail + ", userName = " + userName);
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setSubject("用户名发送");
+        message.setText("用户名:" + userName +"请妥善保存");
+        message.setTo(toEmail);
+        message.setFrom("1129729148@qq.com");
+
+
+        javaMailSender.send(message);
+
     }
 
     //退出登录
