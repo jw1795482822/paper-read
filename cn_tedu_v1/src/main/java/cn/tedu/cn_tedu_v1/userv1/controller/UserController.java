@@ -2,6 +2,7 @@ package cn.tedu.cn_tedu_v1.userv1.controller;
 
 
 import cn.tedu.cn_tedu_v1.userv1.SnowflakeIdGenerator;
+import cn.tedu.cn_tedu_v1.userv1.exception.GlobalExceptionHandler;
 import cn.tedu.cn_tedu_v1.userv1.mapper.SecurityMapper;
 import cn.tedu.cn_tedu_v1.userv1.mapper.UserMapper;
 import cn.tedu.cn_tedu_v1.userv1.pojo.dto.SecurityDTO;
@@ -21,6 +22,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
@@ -50,16 +52,18 @@ public class UserController {
 
     //发送邮箱验证码
     @GetMapping("send")
-    public ResultVO send(String email, HttpSession httpSession) {
+    public ResultVO send(@RequestParam("email") String email, HttpSession httpSession) {
         System.out.println("email = " + email);
-        Integer code = new Random().nextInt(10000);
+        Integer code = new Random().nextInt(8999) + 1000;
         System.out.println(code);
         SimpleMailMessage message = new SimpleMailMessage();
         message.setSubject("验证码验证");
         message.setText("验证码:" + code);
         message.setTo(email);
         message.setFrom("1129729148@qq.com");
+
         javaMailSender.send(message);
+
         httpSession.setAttribute("code", code);
         httpSession.setMaxInactiveInterval(120);//2分钟
         return new ResultVO(StatusCode.SUCCESS);
@@ -152,7 +156,7 @@ public class UserController {
         return NumberOfJudgments(times.decrementAndGet());*/
     }
 
-    //忘记密码业务逻辑
+    //忘记密码密保修改密码业务逻辑
     @PostMapping("forget")
     public ResultVO forget(@RequestBody SecurityDTO securityDTO) {
         System.out.println(verification.get());
@@ -179,6 +183,10 @@ public class UserController {
         }
         return ForgetThePassword(verification.decrementAndGet());
     }
+
+    //忘记密码邮箱修改密码业务逻辑
+//    @PostMapping("forget-email")
+//    public ResultVO forgetEmail()
 
 
     //登陆状态检查--检查用户进入网站后是否登录--展示首页页面不同

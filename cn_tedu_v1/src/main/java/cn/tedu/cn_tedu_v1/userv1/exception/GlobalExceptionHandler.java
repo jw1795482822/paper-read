@@ -3,13 +3,20 @@ package cn.tedu.cn_tedu_v1.userv1.exception;
 
 import cn.tedu.cn_tedu_v1.userv1.response.ResultVO;
 import cn.tedu.cn_tedu_v1.userv1.response.StatusCode;
+
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import javax.mail.AuthenticationFailedException;
+import javax.mail.MessagingException;
+import javax.mail.SendFailedException;
 
 
 /**
@@ -23,7 +30,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice //=@ControllerAdvice+@ResponseBody
 public class GlobalExceptionHandler {
     /*//private static final Logger log= LoggerFactory.getLogger(GlobalExceptionHandler.class);
-    *//**
+     *//**
      *  @ExceptionHandler 描述的方法为一个异常处理方法，在此注解内部可以定义具体的异常处理
      *  类型(例如RuntimeException.class),此注解描述的方法需要定义一个异常类型的形式参数，
      *  通过这个参数接收具体的异常对象(也可以接收其异常类型对应的子类类型的异常)。
@@ -58,20 +65,43 @@ public class GlobalExceptionHandler {
         log.error("IllegalArgumentException is {}",ex.getMessage());//日志级别trace<debug<info<warn<error
         return new ResultVO(0,ex.getMessage());
     }
-    *//**
+    */
+
+    /**
      * 用户名或密码错误抛出的异常
      */
     @ExceptionHandler({InternalAuthenticationServiceException.class,
             BadCredentialsException.class})
-    public ResultVO handleAuthenticationException(AuthenticationException e){
+    public ResultVO handleAuthenticationException(AuthenticationException e) {
         //判断当前异常是否属于用户名不存在异常
-        if (e instanceof InternalAuthenticationServiceException){
+        if (e instanceof InternalAuthenticationServiceException) {
             log.warn("用户名不存在!");
             return new ResultVO(StatusCode.USER_NOT_EXIST_ERROR);
         }
-            log.warn("密码错误!");
+        log.warn("密码错误!");
         return new ResultVO(StatusCode.PASSWORD_ERROR);
     }
+
+
+//    @ExceptionHandler({SendFailedException.class, AuthenticationFailedException.class, MessagingException.class})
+//    public ResultVO SendFailedException(MessagingException e) {
+//        if (e instanceof SendFailedException) {
+//            log.warn("验证码发送失败!");
+//            return new ResultVO(StatusCode.SEND_ERROR);
+//        }
+//        if (e instanceof AuthenticationFailedException) {
+//            log.warn("验证码发送失败!");
+//            return new ResultVO(StatusCode.SEND_ERROR);
+//        }
+//        if (e instanceof MessagingException) {
+//            log.warn("验证码发送失败!");
+//            return new ResultVO(StatusCode.SEND_ERROR);
+//        }
+//
+//        //验证码发送
+//        return new ResultVO(StatusCode.SUCCESS);
+//
+//    }
 
     /**
      * 无权访问时抛出的异常
@@ -79,7 +109,7 @@ public class GlobalExceptionHandler {
 
     //这个异常处理暂时没有用到
     @ExceptionHandler({AccessDeniedException.class})
-    public ResultVO handleAccessDeniedException(AccessDeniedException e){
+    public ResultVO handleAccessDeniedException(AccessDeniedException e) {
         log.warn("无权访问!");
         return new ResultVO(StatusCode.FORBIDDEN_ERROR);
     }
