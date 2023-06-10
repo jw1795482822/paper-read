@@ -4,7 +4,9 @@ package cn.tedu.cn_tedu_v1.userv1;
  * Author = bianmy
  * DATE = 2023/6/8 16:02
  */
-
+/*
+* 雪花算法
+* */
 public class SnowflakeIdGenerator {
     // 起始的时间戳
     private final static long START_TIMESTAMP = 1480166465631L;

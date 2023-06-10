@@ -20,7 +20,8 @@ public enum StatusCode {
     REPEAT_USER(1007, "您当用户名已存在,请重新注册!"),
     FORBIDDEN_ERROR(1008,"无权访问"),
     USER_NOT_EXIST_ERROR(1009,"用户不存在"),
-    VERIFICATION_ERROR(1010, "验证码错误,请重新输入");
+    VERIFICATION_ERROR(1010, "验证码错误,请重新输入"),
+    EMAIL_EXISTS_ERROR(1011, "电子邮箱账户存在,请重新输入");
 
 
     private int code;

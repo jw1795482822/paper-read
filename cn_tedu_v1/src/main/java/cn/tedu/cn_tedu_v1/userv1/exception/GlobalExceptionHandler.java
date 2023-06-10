@@ -76,6 +76,8 @@ public class GlobalExceptionHandler {
     /**
      * 无权访问时抛出的异常
      */
+
+    //这个异常处理暂时没有用到
     @ExceptionHandler({AccessDeniedException.class})
     public ResultVO handleAccessDeniedException(AccessDeniedException e){
         log.warn("无权访问!");

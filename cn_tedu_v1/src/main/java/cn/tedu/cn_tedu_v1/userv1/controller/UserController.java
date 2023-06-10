@@ -34,7 +34,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @RequestMapping("/v1/users/")
 public class UserController {
 
-    static AtomicInteger times = new AtomicInteger(3);
+    //static AtomicInteger times = new AtomicInteger(3);
     static AtomicInteger verification = new AtomicInteger(3);
 
     @Autowired
@@ -69,6 +69,11 @@ public class UserController {
     @PostMapping("reg")
     public ResultVO insert(@RequestBody UserRegDTO userRegDTO, HttpSession httpSession) {
         System.out.println("userRegDTO = " + userRegDTO.getCode() + ", httpSession = " + httpSession.getAttribute("code"));
+        //判断邮箱是否存在
+        if (userMapper.selectByEmail(userRegDTO.getEmail()) != 0) {
+            return new ResultVO(StatusCode.EMAIL_EXISTS_ERROR);
+        }
+        //判断验证码与缓存的验证码是否一致
         if (!userRegDTO.getCode().equals(String.valueOf(httpSession.getAttribute("code")))) {
             return new ResultVO(StatusCode.VERIFICATION_ERROR);
         }
@@ -85,6 +90,8 @@ public class UserController {
         //生成用户ID
         SnowflakeIdGenerator idGenerator = new SnowflakeIdGenerator(1, 1);
         user.setUserId(idGenerator.nextId());
+
+        //初始赋权全部赋权用户权限
         user.setAdmin("user");
 
         //让密码加密
@@ -161,7 +168,8 @@ public class UserController {
             return ForgetThePassword(verification.decrementAndGet());
         if (securityDTO.getQuestion().equals(security.getQuestion())) {
             if (securityDTO.getAnswer().equals(security.getAnswer())) {
-                //times.set(3);
+                //
+                verification.set(3);
                 //加密修改好的密码
                 securityDTO.setPassword(passwordEncoder.encode(securityDTO.getPassword()));
                 securityMapper.passwordUpdate(securityDTO);
