@@ -6,12 +6,12 @@
 
     <select id="SecurityBySecurity" resultType="cn.tedu.cn_tedu_v1.userv1.pojo.entiy.Security">
         SELECT id,question,answer,user_id
-        FROM security
-        WHERE user_id = (SELECT id FROM user WHERE user_name =#{username})
+        FROM zhipian_shop.zhipian_security
+        WHERE user_id = (SELECT id FROM zhipian_shop.zhipian_user WHERE user_name =#{username})
     </select>
 
     <update id="passwordUpdate">
-        UPDATE user
+        UPDATE zhipian_shop.zhipian_user
         SET password=#{password}
         WHERE user_name=#{username}
     </update>

@@ -6,12 +6,12 @@
 
 <select id="selectByEmail" resultType="cn.tedu.cn_tedu_v1.userv1.pojo.vo.EmailForGetVO">
     SELECT e_mail, user_name
-    FROM user
+    FROM zhipian_shop.zhipian_user
     WHERE e_mail = #{email};
     </select>
 
 <update id="updateByEmail">
-    UPDATE user
+    UPDATE zhipian_shop.zhipian_user
     SET password = #{password}
     WHERE e_mail = #{email};
     </update>

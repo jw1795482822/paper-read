@@ -1,6 +1,7 @@
 package cn.tedu.cn_tedu_v1.userv1.pojo.entiy;
 
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.util.Date;

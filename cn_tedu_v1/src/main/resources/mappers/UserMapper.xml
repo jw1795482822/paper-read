@@ -5,25 +5,25 @@
 <mapper namespace="cn.tedu.cn_tedu_v1.userv1.mapper.UserMapper">
     <insert id="insert" parameterType="cn.tedu.cn_tedu_v1.userv1.pojo.entiy.User"
             useGeneratedKeys="true"  keyProperty="id">
-        INSERT INTO user (id,user_name,nick_name,password,admin,create_time,user_id,e_mail)
+        INSERT INTO zhipian_shop.zhipian_user (id,user_name,nick_name,password,admin,gmt_create,user_id,e_mail)
         VALUES (NULL,#{username},#{nickname},#{password},#{admin},#{createTime},#{userId},#{email})
     </insert>
 
     <insert id="insertSecurity" parameterType="cn.tedu.cn_tedu_v1.userv1.pojo.entiy.Security">
-        INSERT INTO security (id, question, answer, user_id)
+        INSERT INTO zhipian_shop.zhipian_security (id, question, answer, user_id)
         VALUES (NULL, #{question}, #{answer}, #{userId});
 
     </insert>
 
     <select id="selectByUserName" resultType="cn.tedu.cn_tedu_v1.userv1.pojo.vo.UserVO">
         SELECT id,password,nick_name,admin
-        FROM user
+        FROM zhipian_shop.zhipian_user
         WHERE user_name =#{username}
     </select>
 
     <select id="selectByEmail" resultType="int">
         SELECT COUNT(*)
-        FROM user
+        FROM zhipian_shop.zhipian_user
         WHERE e_mail = #{email}
     </select>
 </mapper>

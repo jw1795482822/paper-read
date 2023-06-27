@@ -10,9 +10,7 @@ public enum StatusCode {
     SUCCESS(1000, "成功"),
     ERROR(8888,"异常错误"),
     NOT_LOGIN(7777, "用户未登录!"),
-//    PASSWORD_ERROR_TWICE(1001, "用户账号或密码错误,还有2次机会!"),
-//    PASSWORD_ERROR_ONCE(1002, "用户账号或密码错误,还有1次机会!"),
-//    PASSWORD_ERROR(1003, "用户账号或密码错误,当天无机会,请采用密保验证!"),
+
     PASSWORD_ERROR(1003, "密码错误!"),
     QUESTION_ERROR_TWICE(1004, "密保答案填写错误,请重新填写,还有2次机会!"),
     QUESTION_ERROR_ONCE(1005, "密保答案填写错误,请重新填写,还有1次机会!"),
