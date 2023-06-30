@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.cn_tedu_v1.search.persist.mapper.SearchMapper">
+
+    <select id="selectByWd" resultMap="UserListItemResultMap">
+        SELECT c.id , c.name, c.author, c.publish_time, c.publisher,
+               c.cover, cat.name
+        FROM zhipian_shop.zhipian_book c
+                 JOIN zhipian_shop.zhipian_library cat ON c.library_id = cat.id
+        JOIN zhipian_shop.zhipian_user u ON c.user_id=u.id
+        WHERE c.name LIKE  CONCAT ('%',#{wd},'%') OR c.author LIKE  CONCAT ('%',#{wd},'%')
+           OR cat.name LIKE  CONCAT ('%',#{wd},'%')
+    </select>
+
+
+
+
+
+    <resultMap id="UserListItemResultMap"
+               type="cn.tedu.cn_tedu_v1.search.pojo.vo.BookANDLibraryListVO">
+        <id column="id" property="id"/>
+        <result column="user_name" property="userName"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="author" property="author"/>
+        <result column="publish_time" property="publishTime"/>
+        <result column="publisher" property="publisher"/>
+        <result column="status" property="status"/>
+        <result column="cover" property="cover"/>
+        <result column="store_amount" property="storeAmount"/>
+        <result column="borrowing_volume" property="borrowingVolume"/>
+        <result column="cat.name" property="LibraryName"/>
+        <result column="address" property="address"/>
+        <result column="name" property="BookName"/>
+    </resultMap>
+
+
+
+</mapper>
