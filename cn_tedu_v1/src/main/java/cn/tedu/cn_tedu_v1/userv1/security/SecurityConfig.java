@@ -1,9 +1,11 @@
 package cn.tedu.cn_tedu_v1.userv1.security;
 
+import cn.tedu.cn_tedu_v1.core.filter.JwtAuthorizationFilter;
 import cn.tedu.cn_tedu_v1.userv1.response.ResultVO;
 import cn.tedu.cn_tedu_v1.userv1.response.StatusCode;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,11 +13,14 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import javax.servlet.Filter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +32,9 @@ import java.io.PrintWriter;
 @EnableWebSecurity
 @Slf4j
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private JwtAuthorizationFilter jwtAuthorizationFilter;
 
     //配置密码加密的方式
     @Bean
@@ -47,6 +55,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        // 配置Security框架不使用Session
+        // SessionCreationPolicy.NEVER：从不主动创建Session，但是，Session存在的话，会自动使用
+        // SessionCreationPolicy.STATELESS：无状态，无论是否存在Session，都不使用
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        // 将自定义的解析JWT的过滤器添加到Security框架的过滤器链中
+        // 必须添加在检查SecurityContext的Authentication之前，具体位置并不严格要求
+
+        http.addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
 
         // 处理“无认证信息却访问需要认证的资源时”的响应
         http.exceptionHandling().authenticationEntryPoint(new AuthenticationEntryPoint() {

@@ -1,4 +1,4 @@
-package cn.tedu.cn_tedu_v1.comment.security;
+package cn.tedu.cn_tedu_v1.common.security;
 
 import lombok.Data;
 

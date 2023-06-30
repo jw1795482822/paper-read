@@ -1,4 +1,4 @@
-package cn.tedu.cn_tedu_v1.comment.consts;
+package cn.tedu.cn_tedu_v1.common.consts;
 
 /**
  * HTTP相关常量

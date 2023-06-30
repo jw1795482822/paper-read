@@ -22,7 +22,19 @@ public enum StatusCode {
     EMAIL_EXISTS_ERROR(1011, "电子邮箱账户存在,请重新输入"),
     SEND_ERROR(1012, "验证码发送失败"),
     ERROR_UNAUTHORIZED(4010,"操作失败,当前未登录"),
-    NOT_EMAIL_ERROR(1013, "邮箱不存在");
+    NOT_EMAIL_ERROR(1013, "邮箱不存在"),
+    /**
+     * 错误：JWT已过期
+     */
+    ERR_JWT_EXPIRED(60000,"操作失败，您的登录信息已经过期，请重新登录！"),
+    /**
+     * 错误：JWT验证签名失败，可能使用了伪造的JWT
+     */
+    ERR_JWT_SIGNATURE(60100,"非法访问，你的本次操作已经被记录！"),
+    /**
+     * 错误：JWT格式错误
+     */
+    ERR_JWT_MALFORMED(60200,"非法访问，你的本次操作已经被记录！");
 
 
     private int code;

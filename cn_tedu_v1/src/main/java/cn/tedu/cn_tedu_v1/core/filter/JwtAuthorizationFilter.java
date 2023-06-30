@@ -2,8 +2,10 @@ package cn.tedu.cn_tedu_v1.core.filter;
 
 
 
-import cn.tedu.cn_tedu_v1.comment.consts.HttpConsts;
-import cn.tedu.cn_tedu_v1.comment.security.CurrentPrincipal;
+import cn.tedu.cn_tedu_v1.common.consts.HttpConsts;
+import cn.tedu.cn_tedu_v1.common.security.CurrentPrincipal;
+import cn.tedu.cn_tedu_v1.userv1.response.ResultVO;
+import cn.tedu.cn_tedu_v1.userv1.response.StatusCode;
 import com.alibaba.fastjson.JSON;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +27,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import static cn.tedu.cn_tedu_v1.common.consts.HttpConsts.HEADER_AUTHORIZATION;
+
 /**
  * <p>处理JWT的过滤器</p>
  *
@@ -42,7 +46,7 @@ import java.util.List;
 @Component
 public class JwtAuthorizationFilter extends OncePerRequestFilter implements HttpConsts {
 
-    @Value("${tea-store.jwt.secret-key}")
+    @Value("${cn-tedu.jwt.secret-key}")
     private String secretKey;
 
     /**
@@ -81,15 +85,24 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter implements Http
                     .getBody();
         } catch (ExpiredJwtException e) {
             log.warn("解析JWT时出现异常：ExpiredJwtException");
-            String message = "操作失败，您的登录信息已经过期，请重新登录！";
+            ResultVO resultVO = new ResultVO(StatusCode.ERR_JWT_EXPIRED);
+            PrintWriter writer = response.getWriter();
+            writer.println(JSON.toJSONString(resultVO));
+            writer.close();
 
         } catch (SignatureException e) {
             log.warn("解析JWT时出现异常：SignatureException");
-            String message = "非法访问，你的本次操作已经被记录！";
+            ResultVO resultVO = new ResultVO(StatusCode.ERR_JWT_SIGNATURE);
+            PrintWriter writer = response.getWriter();
+            writer.println(JSON.toJSONString(resultVO));
+            writer.close();
 
         } catch (MalformedJwtException e) {
             log.warn("解析JWT时出现异常：MalformedJwtException");
-            String message = "非法访问，你的本次操作已经被记录！";
+            ResultVO resultVO = new ResultVO(StatusCode.ERR_JWT_MALFORMED);
+            PrintWriter writer = response.getWriter();
+            writer.println(JSON.toJSONString(resultVO));
+            writer.close();
 
         } catch (Throwable e) {
             log.warn("解析JWT时出现异常：{}", e);

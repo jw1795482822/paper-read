@@ -6,6 +6,7 @@ import cn.tedu.cn_tedu_v1.search.service.ISearchService;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ public class SearchController {
 
 
     @RequestMapping("/{wd}/search")
+    @PreAuthorize("hasAuthority('bookadmin')")
     private JsonResult search(@PathVariable String wd){
         log.warn("开始处理 查询语句: {}",wd);
         List<BookANDLibraryListVO> list = searchService.selectByWd(wd);
