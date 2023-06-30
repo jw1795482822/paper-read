@@ -4,10 +4,11 @@ package cn.tedu.cn_tedu_v1.userv1.pojo.entiy;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class User {
+public class User  implements Serializable {
     private Long id;
     private String username;
     private String nickname;

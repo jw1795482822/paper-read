@@ -11,24 +11,31 @@ import cn.tedu.cn_tedu_v1.userv1.pojo.dto.UserRegDTO;
 import cn.tedu.cn_tedu_v1.userv1.pojo.entiy.Security;
 import cn.tedu.cn_tedu_v1.userv1.pojo.entiy.User;
 import cn.tedu.cn_tedu_v1.userv1.pojo.vo.EmailForGetVO;
+import cn.tedu.cn_tedu_v1.userv1.pojo.vo.UserLoginResultVO;
 import cn.tedu.cn_tedu_v1.userv1.pojo.vo.UserVO;
 import cn.tedu.cn_tedu_v1.userv1.response.ResultVO;
 import cn.tedu.cn_tedu_v1.userv1.response.StatusCode;
+import cn.tedu.cn_tedu_v1.userv1.security.CustomUserDetails;
+import com.alibaba.fastjson.JSON;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 
 import javax.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -36,6 +43,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 @RestController
 @RequestMapping("/v1/users/")
+@Slf4j
 public class UserController {
 
     //static AtomicInteger times = new AtomicInteger(3);
@@ -51,11 +59,17 @@ public class UserController {
     @Autowired
     private JavaMailSender javaMailSender;
 
+    @Value("${cn-tedu.jwt.duration-in-minute}")
+    public Integer durationInMinute;
+
+    @Value("${cn-tedu.jwt.secret-key}")
+    public String securityKey;
+
 
     //发送邮箱验证码
     @GetMapping("send")
     public ResultVO send(@RequestParam("email") String email, HttpSession httpSession) {
-        System.out.println("email = " + email);
+        log.debug("email:{}",email);
         Integer code = new Random().nextInt(8999) + 1000;
         System.out.println(code);
         SimpleMailMessage message = new SimpleMailMessage();
@@ -118,15 +132,7 @@ public class UserController {
         userMapper.insertSecurity(security);
         return new ResultVO(StatusCode.SUCCESS);
 
-        /*UserVO userVO = userMapper.selectByUserName(userRegDTO.getUsername());
-        if (userVO != null) {
-            return new ResultVO(StatusCode.REPEAT_USER);
-        }
 
-        userMapper.insert(userRegDTO);
-        securityManager.SecurityUpdate(userRegDTO);
-
-        return new ResultVO(StatusCode.SUCCESS);*/
     }
 
     @Autowired
@@ -135,29 +141,53 @@ public class UserController {
     //登录功能
     @PostMapping("login")
     public ResultVO login(@RequestBody UserRegDTO userRegDTO) {
-        System.out.println("userRegDTO = " + userRegDTO);
+        log.debug("登录请求传入的参数{}",userRegDTO);
         UserVO userVO = userMapper.selectByUserName(userRegDTO.getUsername());
-        System.out.println(userVO);
+        log.debug("根据用户名查询到的userVO:{}",userVO);
         Authentication result = manager.authenticate(new UsernamePasswordAuthenticationToken(
                 userRegDTO.getUsername(), userRegDTO.getPassword()));
+        log.debug("验证用户登录成功返回来的登陆结果{}",result);
+
+        Object principal = result.getPrincipal();
+        //这个就是UserDetailServiceImpl类中返回的UserDetails对象数据
+        log.debug("从认证结果中获取到当事人{}",principal);
+        CustomUserDetails customUserDetails = (CustomUserDetails) principal;
+        Long id = customUserDetails.getId();
+        log.debug("从认证结果中的当事人中获取到的ID:{}", id);
+
+        String username = customUserDetails.getUsername();
+        log.debug("从认证结果中的当事人中获取到的昵称:{}", username);
+
+        Collection<GrantedAuthority> authorities = customUserDetails.getAuthorities();
+        log.debug("从认证结果中的当事人中获取到的权限:{}", authorities);
+
+        String authoritiesJsonString = JSON.toJSONString(authorities);
+        log.debug("将权限列表对象转换为JSON格式的字符串：{}", authoritiesJsonString);
+        Date date = new Date(System.currentTimeMillis() + 1L * 60 * 1000 * durationInMinute);
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("id", id);
+        claims.put("username", username);
+        claims.put("authoritiesJsonString", authoritiesJsonString);
+        String jwt = Jwts.builder()
+                .setHeaderParam("alg", "HS256")
+                .setHeaderParam("typ", "JWT")
+                .setClaims(claims)
+                .setExpiration(date)
+                .signWith(SignatureAlgorithm.HS256, securityKey)
+                .compact();
+
+        UserLoginResultVO userLoginResultVO = new UserLoginResultVO()
+                .setId(id)
+                .setUsername(username)
+                .setAdmin(authorities)
+                .setToken(jwt);
+        return new ResultVO(StatusCode.SUCCESS,userLoginResultVO);
+
+
+
         //将认证结果保存到Security上下文中   让Security框架记住登录状态
-        SecurityContextHolder.getContext().setAuthentication(result);
-        return new ResultVO(result.getPrincipal());
-        /*//以后考虑下同一个用户名有三次机会
-        if (times.get() == 0) {
-            return new ResultVO(StatusCode.PASSWORD_ERROR);
-        }
-        System.out.println("userRegDTO = " + userRegDTO);
-        UserVO userVO = userMapper.selectByUserName(userRegDTO.getUsername());
-        if (userVO != null) {
-            if (userRegDTO.getPassword().equals(userVO.getPassword())) {
-                session.setAttribute("user", userVO);
-                return new ResultVO(StatusCode.SUCCESS);
-            } else {
-                return NumberOfJudgments(times.decrementAndGet());
-            }
-        }
-        return NumberOfJudgments(times.decrementAndGet());*/
+//        SecurityContextHolder.getContext().setAuthentication(result);
+       // return new ResultVO(result.getPrincipal());
     }
 
     //忘记密码密保修改密码业务逻辑

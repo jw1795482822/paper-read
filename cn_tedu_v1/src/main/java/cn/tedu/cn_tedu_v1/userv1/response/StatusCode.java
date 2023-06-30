@@ -21,6 +21,7 @@ public enum StatusCode {
     VERIFICATION_ERROR(1010, "验证码错误,请重新输入"),
     EMAIL_EXISTS_ERROR(1011, "电子邮箱账户存在,请重新输入"),
     SEND_ERROR(1012, "验证码发送失败"),
+    ERROR_UNAUTHORIZED(4010,"操作失败,当前未登录"),
     NOT_EMAIL_ERROR(1013, "邮箱不存在");
 
 

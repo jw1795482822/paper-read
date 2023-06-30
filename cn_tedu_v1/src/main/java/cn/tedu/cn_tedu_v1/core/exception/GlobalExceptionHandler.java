@@ -28,6 +28,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice //=@ControllerAdvice+@ResponseBody
 public class GlobalExceptionHandler {
 
+    public GlobalExceptionHandler() {
+        log.info("创建异常处理器GlobalExceptionHandler");
+    }
 
 
     /**
@@ -44,6 +47,8 @@ public class GlobalExceptionHandler {
         log.warn("密码错误!");
         return new ResultVO(StatusCode.PASSWORD_ERROR);
     }
+
+
 
 
 
