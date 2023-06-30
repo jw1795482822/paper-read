@@ -3,6 +3,7 @@ package cn.tedu.cn_tedu_v1.core.filter;
 
 
 import cn.tedu.cn_tedu_v1.comment.consts.HttpConsts;
+import cn.tedu.cn_tedu_v1.comment.security.CurrentPrincipal;
 import com.alibaba.fastjson.JSON;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
