@@ -69,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.exceptionHandling().authenticationEntryPoint(new AuthenticationEntryPoint() {
             @Override
             public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
-                log.warn("{}", e);
+                log.warn("认证错误{}",e);
                 response.setContentType("application/json; charset=utf-8");
                 ResultVO resultVO = new ResultVO(StatusCode.ERROR_UNAUTHORIZED);
                 PrintWriter out = response.getWriter();
