@@ -106,8 +106,10 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter implements Http
 
         } catch (Throwable e) {
             log.warn("解析JWT时出现异常：{}", e);
-            String message = "服务器忙，请稍后再试！【同学们，看到这句时，你应该检查服务器端的控制台，并在JwtAuthorizationFilter中解析JWT时添加处理异常的catch代码块】";
-
+            ResultVO resultVO = new ResultVO(StatusCode.ERROR);
+            PrintWriter writer = response.getWriter();
+            writer.println(JSON.toJSONString(resultVO));
+            writer.close();
         }
 
         // 从解析结果中获取用户的信息
@@ -129,6 +131,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter implements Http
                 principal, credentials, authorities);
 
         // 将Authentication对象存入到SecurityContext中
+        log.debug("authentication存储信息为{}", authentication);
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(authentication);
 

@@ -48,6 +48,13 @@ public class GlobalExceptionHandler {
         return new ResultVO(StatusCode.PASSWORD_ERROR);
     }
 
+    @ExceptionHandler
+    public ResultVO handleAccessDeniedException(AccessDeniedException e) {
+        log.debug("全局异常处理器开始处理AccessDeniedException");
+
+        return new ResultVO(StatusCode.FORBIDDEN_ERROR);
+    }
+
 
 
 

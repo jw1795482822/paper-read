@@ -24,11 +24,11 @@ public class SearchController {
 
 
     @RequestMapping("/{wd}/search")
-
-    private JsonResult search(@PathVariable String wd){
+    @PreAuthorize("hasAuthority('user')")
+    public JsonResult search(@PathVariable String wd){
         log.warn("开始处理 查询语句: {}",wd);
         List<BookANDLibraryListVO> list = searchService.selectByWd(wd);
-        log.warn("查询结果为 : {}" , list );
+        //log.warn("查询结果为 : {}" , list );
         return JsonResult.ok(list);
     }
 

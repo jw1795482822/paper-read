@@ -29,7 +29,6 @@ import java.io.PrintWriter;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)//开启方法授权的检测
-@EnableWebSecurity
 @Slf4j
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -59,6 +58,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // SessionCreationPolicy.NEVER：从不主动创建Session，但是，Session存在的话，会自动使用
         // SessionCreationPolicy.STATELESS：无状态，无论是否存在Session，都不使用
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        // 允许跨域访问，本质上是启用了Security框架自带的CorsFilter
+        http.cors();
 
         // 将自定义的解析JWT的过滤器添加到Security框架的过滤器链中
         // 必须添加在检查SecurityContext的Authentication之前，具体位置并不严格要求
@@ -127,8 +129,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .permitAll();        //直接放行,  即不需要登录也可以访问
         //关闭跨域攻击防御策略  否则所有post请求将失效
         http.csrf().disable();
-        // 允许跨域访问，本质上是启用了Security框架自带的CorsFilter
-        http.cors();
+
 
     }
 }
