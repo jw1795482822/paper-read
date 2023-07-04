@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.cn_tedu_v1.bookdeatils.persist.mapper.BookDeatilsMapper">
+    <select id="listBookDeatils"
+            resultType="cn.tedu.cn_tedu_v1.bookdeatils.pojo.vo.BookDeatilsVO">
+        SELECT id,name,author,cover,introduction
+        FROM zhipian_shop.zhipian_book
+        WHERE id = #{id}
+
+    </select>
+
+    <resultMap id="bookDeatils"
+               type="cn.tedu.cn_tedu_v1.bookdeatils.pojo.vo.BookDeatilsVO">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="author" property="author"/>
+        <result column="cover" property="cover"/>
+        <result column="introduction" property="introduction"/>
+
+    </resultMap>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
