@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan(
         {"cn.tedu.cn_tedu_v1.userv1.mapper",
         "cn.tedu.cn_tedu_v1.search.persist.mapper",
-        "cn.tedu.cn_tedu_v1.bookdeatils.persist.mapper"})
+        "cn.tedu.cn_tedu_v1.bookdeatils.persist.mapper",
+        "cn.tedu.cn_tedu_v1.**.**.mapper"
+        })
 public class MybatisConfig {
 }
