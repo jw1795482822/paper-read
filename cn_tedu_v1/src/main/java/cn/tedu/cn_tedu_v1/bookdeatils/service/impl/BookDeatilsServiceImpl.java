@@ -21,8 +21,8 @@ public class BookDeatilsServiceImpl implements IBookDeatilsService {
     private IBookDeatilsRepository bookDetailsRepository;
 
     @Override
-    public List<BookDeatilsVO> listBookDetails(String A) throws IOException {
-        List<BookDeatilsVO> BookDeatilsVO=bookDetailsRepository.listBookDeatils(A);
+    public List<BookDeatilsVO> listBookDetails() throws IOException {
+        List<BookDeatilsVO> BookDeatilsVO =bookDetailsRepository.listBookDetails();
 
         for (BookDeatilsVO libraryBookVO: BookDeatilsVO){
             Path imagePath = Paths.get("e:/files/" + libraryBookVO.getCover());
@@ -34,8 +34,6 @@ public class BookDeatilsServiceImpl implements IBookDeatilsService {
         return BookDeatilsVO;
 
     }
-
-
 
 
 }

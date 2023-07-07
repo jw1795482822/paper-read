@@ -18,7 +18,7 @@ public class JsonResult {
     /**
      * 响应的业务状态码值
      */
-    @JacksonInject()
+//    @JacksonInject()
     private Integer state;
     /**
      * 操作失败时的描述文本

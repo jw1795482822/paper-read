@@ -6,5 +6,5 @@ import java.io.IOException;
 import java.util.List;
 
 public interface IBookDeatilsService {
-    List<BookDeatilsVO> listBookDetails(String A) throws IOException;
+    List<BookDeatilsVO> listBookDetails() throws IOException;
 }

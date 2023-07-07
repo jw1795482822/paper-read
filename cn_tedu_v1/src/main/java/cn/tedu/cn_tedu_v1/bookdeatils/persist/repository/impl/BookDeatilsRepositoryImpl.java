@@ -17,9 +17,8 @@ public class BookDeatilsRepositoryImpl implements IBookDeatilsRepository {
 
 
 
-
     @Override
-    public List<BookDeatilsVO> listBookDeatils(String A) {
-        return bookDeatilsMapper.listBookDetails(A);
+    public List<BookDeatilsVO> listBookDetails() {
+        return bookDeatilsMapper.listBookDetails();
     }
 }
