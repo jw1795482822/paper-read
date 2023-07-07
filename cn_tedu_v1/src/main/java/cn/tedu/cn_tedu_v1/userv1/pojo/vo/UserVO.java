@@ -15,6 +15,4 @@ public class UserVO  implements Serializable {
     private String password;
     private String nickname;
     private String admin;
-//    @Email
-//    private String email;
 }

@@ -11,8 +11,20 @@ import java.io.Serializable;
  */
 @Data
 public class SecurityDTO implements Serializable {
+    /**
+     * 用户名
+     */
     private String username;
+    /**
+     * 密保问题
+     */
     private String question;
+    /**
+     * 答案
+     */
     private String answer;
+    /**
+     * 密码
+     */
     private String password;
 }

@@ -40,6 +40,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 处理用户登录注册页面业务流程,检查登录状态
+ * @author bmy
+ *
  */
 @RestController
 @RequestMapping("/v1/users/")
@@ -66,26 +68,43 @@ public class UserController {
     public String securityKey;
 
 
-    //发送邮箱验证码
+    /**
+     * 发送邮件功能
+     * @param email  接受验证码邮箱
+     * @param httpSession 服务器缓存
+     * @return 响应结果
+     */
     @GetMapping("send")
     public ResultVO send(@RequestParam("email") String email, HttpSession httpSession) {
         log.debug("email:{}",email);
+        //生成四位随机验证码
         Integer code = new Random().nextInt(8999) + 1000;
-        System.out.println(code);
+        log.debug("验证码:{}",code);
+        //用于创建简单的邮件消息。通过SimpleMailMessage对象，
+        // 你可以设置邮件的发送者、接收者、主题、正文等信息。
         SimpleMailMessage message = new SimpleMailMessage();
+        //主题
         message.setSubject("验证码验证");
+        //正文
         message.setText("验证码:" + code);
+        //接受邮箱
         message.setTo(email);
+        //发送者邮箱
         message.setFrom("1129729148@qq.com");
-
+        //发送
         javaMailSender.send(message);
-
+        //验证码缓存两分钟
         httpSession.setAttribute("code", code);
         httpSession.setMaxInactiveInterval(120);//2分钟
         return new ResultVO(StatusCode.SUCCESS);
     }
 
-    //注册功能
+    /**
+     * 注册功能
+     * @param userRegDTO 用户输入内容
+     * @param httpSession  服务器缓存
+     * @return
+     */
     @PostMapping("reg")
     public ResultVO insert(@RequestBody UserRegDTO userRegDTO, HttpSession httpSession) {
         System.out.println("userRegDTO = " + userRegDTO.getCode() + ", httpSession = " + httpSession.getAttribute("code"));
@@ -136,9 +155,13 @@ public class UserController {
     }
 
     @Autowired
-    AuthenticationManager manager;
+    private AuthenticationManager manager;
 
-    //登录功能
+    /**
+     * 登录功能
+     * @param userRegDTO 接受用户输入的账号密码
+     * @return
+     */
     @PostMapping("login")
     public ResultVO login(@RequestBody UserRegDTO userRegDTO) {
         log.debug("登录请求传入的参数{}",userRegDTO);
@@ -190,7 +213,11 @@ public class UserController {
        // return new ResultVO(result.getPrincipal());
     }
 
-    //忘记密码密保修改密码业务逻辑
+    /**
+     * 忘记密码密保修改密码业务逻辑
+     * @param securityDTO 接受用户输入数据
+     * @return 响应对象
+     */
     @PostMapping("forget")
     public ResultVO forget(@RequestBody SecurityDTO securityDTO) {
         System.out.println(verification.get());
@@ -221,7 +248,13 @@ public class UserController {
 
     @Autowired
     private EmailForGetMapper emailForGetMapper;
-    //忘记密码邮箱修改密码业务逻辑
+
+    /**
+     * 忘记密码邮箱修改密码业务逻辑
+     * @param emailDTO 用户输入的邮箱
+     * @param session 服务器缓存
+     * @return 给前端返回响应对象
+     */
     @PostMapping("forget-email")
     public ResultVO forgetEmail(@RequestBody EmailDTO emailDTO,HttpSession session) {
         System.out.println("emailDTO = " + emailDTO);
@@ -247,12 +280,17 @@ public class UserController {
 
 
     //登陆状态检查--检查用户进入网站后是否登录--展示首页页面不同
-    @GetMapping("currentUser")
+   /* @GetMapping("currentUser")
     public UserVO currentUser(HttpSession session) {
         UserVO userVO = (UserVO) session.getAttribute("user");
         return userVO;
-    }
+    }*/
 
+    /**
+     * 忘记密码验证成功后,发送邮件方法
+     * @param toEmail 收件邮箱
+     * @param userName 用户名
+     */
     public void sendUserName(String toEmail,String userName) {
         System.out.println("toEmail = " + toEmail + ", userName = " + userName);
         SimpleMailMessage message = new SimpleMailMessage();
@@ -273,7 +311,11 @@ public class UserController {
         SecurityContextHolder.clearContext();
     }
 
-    //忘记密码判断密选择及答案是否正确
+    /**
+     * 忘记密码判断密选择及答案是否正确
+     * @param verification 次数
+     * @return 响应对象
+     */
     public ResultVO ForgetThePassword(int verification) {
         switch (verification) {
             case 2:

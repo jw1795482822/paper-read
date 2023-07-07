@@ -9,10 +9,17 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SecurityMapper  {
-    //根据用户名查找密保表实体类
+    /**
+     * 根据用户名查找密保表实体类
+     * @param username 用户名
+     * @return 密保表实体类
+     */
     Security SecurityBySecurity(String username);
 
-    //忘记密码修改密码流程
+    /**
+     * 忘记密码修改密码流程
+     * @param securityDTO 用户输入信息
+     */
     void passwordUpdate(SecurityDTO securityDTO);
 
 }

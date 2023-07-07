@@ -8,13 +8,30 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserMapper {
-    //查找用户名功能
+    /**
+     * 查找用户名功能
+     * @param username 用户名
+     * @return uservo
+     */
     UserVO selectByUserName(String username);
-    //增加用户
+
+    /**
+     * 增加用户
+     * @param user 用户实体类
+     * @return
+     */
     int insert(User user);
-    //增加密保问题,与用户注册表绑定,
+
+    /**
+     * 增加密保问题,与用户注册表绑定,
+     * @param security 密保问题实体类
+     */
     void insertSecurity(Security security);
 
-
-    int selectByEmail(String email);//注册时查找邮箱是否注册
+    /**
+     * 注册时查找邮箱是否注册
+     * @param email 用户输入的邮箱
+     * @return
+     */
+    int selectByEmail(String email);
 }

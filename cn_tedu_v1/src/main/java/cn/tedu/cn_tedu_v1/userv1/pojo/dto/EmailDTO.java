@@ -10,7 +10,16 @@ import java.io.Serializable;
  */
 @Data
 public class EmailDTO implements Serializable {
+    /**
+     * 邮箱
+     */
     private String email;
+    /**
+     * 密码
+     */
     private String password;
+    /**
+     * 验证码
+     */
     private String code;
 }
