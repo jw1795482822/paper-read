@@ -13,6 +13,7 @@ import cn.tedu.cn_tedu_v1.userv1.pojo.entiy.User;
 import cn.tedu.cn_tedu_v1.userv1.pojo.vo.EmailForGetVO;
 import cn.tedu.cn_tedu_v1.userv1.pojo.vo.UserLoginResultVO;
 import cn.tedu.cn_tedu_v1.userv1.pojo.vo.UserVO;
+import cn.tedu.cn_tedu_v1.userv1.redis.IRedisCode;
 import cn.tedu.cn_tedu_v1.userv1.response.ResultVO;
 import cn.tedu.cn_tedu_v1.userv1.response.StatusCode;
 import cn.tedu.cn_tedu_v1.userv1.security.CustomUserDetails;
@@ -70,12 +71,15 @@ public class UserController {
 
     /**
      * 发送邮件功能
+     *
      * @param email  接受验证码邮箱
      * @param httpSession 服务器缓存
      * @return 响应结果
      */
+    @Autowired
+    private IRedisCode redisCode;
     @GetMapping("send")
-    public ResultVO send(@RequestParam("email") String email, HttpSession httpSession) {
+    public ResultVO send(@RequestParam("email") String email) {
         log.debug("email:{}",email);
         //生成四位随机验证码
         Integer code = new Random().nextInt(8999) + 1000;
@@ -93,9 +97,10 @@ public class UserController {
         message.setFrom("1129729148@qq.com");
         //发送
         javaMailSender.send(message);
-        //验证码缓存两分钟
-        httpSession.setAttribute("code", code);
-        httpSession.setMaxInactiveInterval(120);//2分钟
+        //验证码缓存redis两分钟
+        redisCode.saveEmailCode(email,code);
+//        httpSession.setAttribute("code", code);
+//        httpSession.setMaxInactiveInterval(120);//2分钟
         return new ResultVO(StatusCode.SUCCESS);
     }
 
@@ -107,15 +112,15 @@ public class UserController {
      */
     @PostMapping("reg")
     public ResultVO insert(@RequestBody UserRegDTO userRegDTO, HttpSession httpSession) {
-        System.out.println("userRegDTO = " + userRegDTO.getCode() + ", httpSession = " + httpSession.getAttribute("code"));
+        System.out.println("userRegDTO = " + userRegDTO.getCode());
         //判断邮箱是否存在
         System.out.println("userRegDTO = " + userRegDTO );
         if (userMapper.selectByEmail(userRegDTO.getEmail()) != 0) {
             return new ResultVO(StatusCode.EMAIL_EXISTS_ERROR);
         }
-
+        //httpSession.getAttribute("code")
         //判断验证码与缓存的验证码是否一致
-        if (!userRegDTO.getCode().equals(String.valueOf(httpSession.getAttribute("code")))) {
+        if (!userRegDTO.getCode().equals(String.valueOf(redisCode.getEmailCode(userRegDTO.getEmail())))) {
             return new ResultVO(StatusCode.VERIFICATION_ERROR);
         }
 
@@ -256,14 +261,15 @@ public class UserController {
      * @return 给前端返回响应对象
      */
     @PostMapping("forget-email")
-    public ResultVO forgetEmail(@RequestBody EmailDTO emailDTO,HttpSession session) {
+    public ResultVO forgetEmail(@RequestBody EmailDTO emailDTO) {
         System.out.println("emailDTO = " + emailDTO);
         EmailForGetVO emailForGetVO = emailForGetMapper.selectByEmail(emailDTO.getEmail());
         if (emailForGetVO == null) {
             return new ResultVO(StatusCode.NOT_EMAIL_ERROR);
         }
+        //session.getAttribute("code")
         //判断验证码与缓存的验证码是否一致
-        if (!emailDTO.getCode().equals(String.valueOf(session.getAttribute("code")))) {
+        if (!emailDTO.getCode().equals(String.valueOf(redisCode.getEmailCode(emailDTO.getEmail())))) {
             return new ResultVO(StatusCode.VERIFICATION_ERROR);
         }
 
