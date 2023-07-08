@@ -91,7 +91,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/v1/users/reg",
                 "v1/users/send",
                 "v1/users/forget",
-                "v1/users/forget-email"
+                "v1/users/forget-email",
+                "v1/location/ip"
         };
 
         // 配置请求授权
