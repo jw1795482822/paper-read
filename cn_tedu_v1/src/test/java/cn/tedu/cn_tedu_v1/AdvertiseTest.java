@@ -1,10 +1,12 @@
 package cn.tedu.cn_tedu_v1;
 
 import cn.tedu.cn_tedu_v1.front.dao.persist.mapper.AdvertiseMapper;
-
+import cn.tedu.cn_tedu_v1.front.pojo.vo.AdvertiseVO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 /**
  * Author = lee
@@ -16,9 +18,11 @@ public class AdvertiseTest {
     AdvertiseMapper mapper;
     @Test
     void adver(){
-        Long id = 1l;
-        Object queryResult = mapper.getAdverById(id);
-        System.out.println("查询数据完成，查询结果：" + queryResult);
+
+        List<AdvertiseVO> queryResult = mapper.selectList();
+
+            System.out.println("查询数据完成，查询结果：" + queryResult);
+
 
     }
 }

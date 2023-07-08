@@ -7,14 +7,23 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class AdvertiseServiceImpl implements IAdvertiseService {
     @Autowired
     IAdvertiseRepository repository;
 
+//    @Override
+//    public AdvertiseVO getAdverList() {
+//        return repository.getAdverList();
+//    }
+
     @Override
-    public AdvertiseVO getAdverById(Long id) {
-        return repository.getAdverById(id);
+    public List<AdvertiseVO> selectList() {
+//        log.debug("查询广告结果,为{}",queryWrapper);
+
+        return repository.selectList();
     }
 }

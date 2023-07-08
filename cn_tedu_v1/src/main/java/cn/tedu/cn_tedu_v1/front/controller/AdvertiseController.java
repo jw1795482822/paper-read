@@ -8,9 +8,11 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -22,11 +24,10 @@ public class AdvertiseController {
 
     @ApiOperation("查询广告")
     @ApiOperationSupport(order = 100)
-    @PostMapping("/{id:[0-9]+}/")
-    @PreAuthorize("hasAuthority('/content/tag/update')")
-    public JsonResult getAdverById( Long id){
-        AdvertiseVO adver = service.getAdverById(id);
-        return JsonResult.ok(adver);
+    @GetMapping("/adverlist")
+    public JsonResult getAdverList( ){
+        List<AdvertiseVO>list = service.selectList();
+        return JsonResult.ok(list);
     }
 
 }

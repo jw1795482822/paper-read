@@ -6,13 +6,13 @@ import cn.tedu.cn_tedu_v1.front.pojo.vo.AdvertiseVO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface AdvertiseMapper extends BaseMapper<Advertise> {
-    /**
-     * 根据id查找adver
-     * @param id
-     * @return
-     */
-    AdvertiseVO getAdverById(Long id);
+
+    List<AdvertiseVO> selectList();
+
+
 
 }
