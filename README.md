@@ -17,6 +17,8 @@
   - filter 过滤器
   - mybatis 一些关于mybatis框架相关配置
 - userv1 用户登录注册相关功能
+- location 根据用户IP获取用户当前地址
+
 - 例:功能模块文件夹
   - 功能点文件夹介绍
 
