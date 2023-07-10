@@ -29,7 +29,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-
         <!-- email辅助包 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,7 +46,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
 
         <!--Spring Validation依赖-->
         <dependency>
@@ -91,8 +89,6 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.3.0</version>
         </dependency>
-
-
 
         <!-- PageHelper：专用于MyBatis的分页框架 -->
         <dependency>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.tedu.cn_tedu_v1.search.persist.mapper.SearchMapper">
+<mapper namespace="cn.tedu.cn_tedu_v1.index.search.persist.mapper.SearchMapper">
 
     <select id="selectByWd" resultMap="UserListItemResultMap">
         SELECT c.id , c.name, c.author, c.publish_time, c.publisher,
@@ -19,7 +19,7 @@
 
 
     <resultMap id="UserListItemResultMap"
-               type="cn.tedu.cn_tedu_v1.search.pojo.vo.BookANDLibraryListVO">
+               type="cn.tedu.cn_tedu_v1.index.search.pojo.vo.BookANDLibraryListVO">
         <id column="id" property="id"/>
         <result column="user_name" property="userName"/>
         <result column="nick_name" property="nickName"/>

@@ -1,7 +1,8 @@
 package cn.tedu.cn_tedu_v1;
 
-import cn.tedu.cn_tedu_v1.front.dao.persist.mapper.AdvertiseMapper;
-import cn.tedu.cn_tedu_v1.front.pojo.vo.AdvertiseVO;
+import cn.tedu.cn_tedu_v1.index.front.dao.persist.mapper.AdvertiseMapper;
+import cn.tedu.cn_tedu_v1.index.front.pojo.vo.AdvertiseVO;
+import cn.tedu.cn_tedu_v1.index.front.pojo.vo.CategoryVO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,6 +24,14 @@ public class AdvertiseTest {
 
             System.out.println("查询数据完成，查询结果：" + queryResult);
 
+
+    }
+    @Test
+    void Category(){
+
+        List<CategoryVO> queryResult = mapper.selectCategory();
+
+        System.out.println("查询数据完成，查询结果：" + queryResult);
 
     }
 }

@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.tedu.cn_tedu_v1.front.dao.persist.mapper.AdvertiseMapper">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.cn_tedu_v1.index.front.dao.persist.mapper.AdvertiseMapper">
 
     <select id="selectList" resultMap="adListResultMap">
-        SELECT
-               za.id,za.name,za.url
-        FROM
-             zhipian_shop.zhipian_advertisement za
+        SELECT za.id,
+               za.name,
+               za.url
+        FROM zhipian_shop.zhipian_advertisement za
     </select>
     <resultMap id="adListResultMap"
-               type="cn.tedu.cn_tedu_v1.front.pojo.vo.AdvertiseVO">
+               type="cn.tedu.cn_tedu_v1.index.front.pojo.vo.AdvertiseVO">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="url" property="url"/>
     </resultMap>
 
+
+    <select id="selectCategory" resultMap="caListResultMap">
+        SELECT id,
+               name,
+               keywords
+        FROM zhipian_shop.zhipian_category zc
+    </select>
+    <resultMap id="caListResultMap"
+               type="cn.tedu.cn_tedu_v1.index.front.pojo.vo.CategoryVO">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="keywords" property="keywords"/>
+    </resultMap>
 
 
 </mapper>

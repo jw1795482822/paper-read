@@ -1,9 +1,9 @@
 package cn.tedu.cn_tedu_v1;
 
-import cn.tedu.cn_tedu_v1.search.persist.mapper.SearchMapper;
-import cn.tedu.cn_tedu_v1.search.persist.repository.ISearchRepository;
-import cn.tedu.cn_tedu_v1.search.pojo.vo.BookANDLibraryListVO;
-import cn.tedu.cn_tedu_v1.search.service.ISearchService;
+import cn.tedu.cn_tedu_v1.index.search.persist.mapper.SearchMapper;
+import cn.tedu.cn_tedu_v1.index.search.persist.repository.ISearchRepository;
+import cn.tedu.cn_tedu_v1.index.search.pojo.vo.BookANDLibraryListVO;
+import cn.tedu.cn_tedu_v1.index.search.service.ISearchService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
