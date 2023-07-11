@@ -24,13 +24,13 @@ public class BookDeatilsServiceImpl implements IBookDeatilsService {
     public List<BookDeatilsVO> listBookDetails() throws IOException {
         List<BookDeatilsVO> BookDeatilsVO =bookDetailsRepository.listBookDetails();
 
-        for (BookDeatilsVO libraryBookVO: BookDeatilsVO){
-            Path imagePath = Paths.get("e:/files/" + libraryBookVO.getCover());
-            byte[] imageBytes = Files.readAllBytes(imagePath);
-            // 将图片转换成 base64 编码
-            String base64Img = Base64.getEncoder().encodeToString(imageBytes);
-            libraryBookVO.setCover("data:image/png;base64," + base64Img);
-        }
+//        for (BookDeatilsVO libraryBookVO: BookDeatilsVO){
+//            Path imagePath = Paths.get(libraryBookVO.getCover());
+//            byte[] imageBytes = Files.readAllBytes(imagePath);
+//            // 将图片转换成 base64 编码
+//            String base64Img = Base64.getEncoder().encodeToString(imageBytes);
+//            libraryBookVO.setCover("data:image/png;base64," + base64Img);
+//        }
         return BookDeatilsVO;
 
     }
