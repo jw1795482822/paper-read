@@ -2,6 +2,9 @@ package cn.tedu.cn_tedu_v1.index.bookdeatils.pojo.vo;
 
 import lombok.Data;
 
+import java.time.LocalDate;
+
+
 @Data
 public class BookDeatilsVO {
     /**
@@ -24,4 +27,10 @@ public class BookDeatilsVO {
      * 详细介绍
      */
     private String introduction;
+    /**
+     * 出版时间
+     * LocalDate    不包含时间
+     * localDateTime包含时间
+     */
+    private LocalDate publishTime;
 }

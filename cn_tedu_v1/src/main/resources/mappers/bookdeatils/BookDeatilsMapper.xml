@@ -11,7 +11,7 @@
 
         <select id="listBookDetails"
                 resultMap="bookDeatils">
-            SELECT id,name,author,cover,introduction
+            SELECT id,name,author,cover,introduction,publish_time
             FROM zhipian_shop.zhipian_book
             WHERE id!=0
             ORDER BY id DESC LIMIT 0,20
@@ -26,17 +26,10 @@
         <result column="author" property="author"/>
         <result column="cover" property="cover"/>
         <result column="introduction" property="introduction"/>
+        <result column="publish_time" property="publishTime"/>
     </resultMap>
 
 
 </mapper>
-
-
-
-
-
-
-
-
 
 
