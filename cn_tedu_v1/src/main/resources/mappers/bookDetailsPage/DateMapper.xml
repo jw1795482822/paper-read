@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.cn_tedu_v1.ArticleDetailsPage.persist.mapper.DateMapper">
+    <!--    /**-->
+    <!--    * 查询文章信息根据id-->
+    <!--    * @return 统计查询-->
+    <!--    */-->
+    <!--    BookDetailsPage listBookDetailsPage(Long id);-->
+    <select id="selectUrlByBookId" resultMap="DatePage">
+        SELECT
+            zd.id,zd.pdf_url
+        FROM zhipian_book zb
+                 left JOIN zhipian_data zd on zb.id = zd.book_id
+        WHERE zb.id = #{id}
+    </select>
+    <resultMap id="DatePage"
+               type="cn.tedu.cn_tedu_v1.ArticleDetailsPage.pojo.vo.DateVO">
+        <id column="id" property="id"/>
+        <result column="pdf_url" property="pdfUrl"/>
+    </resultMap>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+

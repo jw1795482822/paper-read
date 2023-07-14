@@ -39,7 +39,7 @@ public class CategoryController {
         return JsonResult.ok(categoryListItemVOList);
     }
 
-    @GetMapping("/{id:[0-9]+")
+    @GetMapping("/{id:[0-9]+}")
     @ApiOperation("根据父类id查询子类别数据列表")
     @ApiOperationSupport(order = 410)
     public JsonResult listByParentId( @PathVariable @Range(min = 1, message = "请提交有效的文章ID值！") Long parentId) {
