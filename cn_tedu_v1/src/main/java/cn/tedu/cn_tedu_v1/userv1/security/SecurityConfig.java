@@ -99,7 +99,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/v1/categories/",
                 "/v1/categories/{id:[0-9]+}",
                 "/v1/adver/adverlist",
-                "/v1/adver/categoryList"
+                "/v1/adver/categoryList",
+                "/v1/adver/BookByBorrow"
         };
 
         // 配置请求授权
