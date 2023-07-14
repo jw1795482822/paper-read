@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.tedu.cn_tedu_v1.index.front.dao.persist.mapper.AdvertiseMapper">
+<mapper namespace="cn.tedu.cn_tedu_v1.index.front.dao.persist.mapper.FrontMapper">
 
     <select id="selectList" resultMap="adListResultMap">
         SELECT za.id,
@@ -31,5 +31,21 @@
         <result column="keywords" property="keywords"/>
     </resultMap>
 
+    <select id="BookByBorrow" resultMap="BBBResultMap">
+        SELECT id,user_id,name,author,cover,store_amount,borrowing_volume
+        FROM zhipian_shop.zhipian_book zb
+        ORDER BY borrowing_volume DESC LIMIT 0,6
+    </select>
+    <resultMap id="BBBResultMap"
+               type="cn.tedu.cn_tedu_v1.index.front.pojo.vo.BookBBVO">
+        <id     column="id" property="Id"/>
+        <result column="user_id" property="userId"/>
+        <result column="name" property="name"/>
+        <result column="author" property="author"/>
+        <result column="cover" property="cover"/>
+        <result column="store_amount" property="storeAmount"/>
+        <result column="borrowing_volume" property="borrowingVolume"/>
+
+    </resultMap>
 
 </mapper>

@@ -1,6 +1,6 @@
 package cn.tedu.cn_tedu_v1;
 
-import cn.tedu.cn_tedu_v1.index.front.dao.persist.mapper.AdvertiseMapper;
+import cn.tedu.cn_tedu_v1.index.front.dao.persist.mapper.FrontMapper;
 import cn.tedu.cn_tedu_v1.index.front.pojo.vo.AdvertiseVO;
 import cn.tedu.cn_tedu_v1.index.front.pojo.vo.CategoryVO;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,7 @@ import java.util.List;
 @SpringBootTest
 public class AdvertiseTest {
     @Autowired
-    AdvertiseMapper mapper;
+    FrontMapper mapper;
     @Test
     void adver(){
 
