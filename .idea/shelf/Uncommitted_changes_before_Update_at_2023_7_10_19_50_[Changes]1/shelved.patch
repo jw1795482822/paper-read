@@ -1,0 +1,105 @@
+Index: .idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_2_0_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_2_0_6.xml b/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_2_0_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_2_0_6.xml	
++++ /dev/null	
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.github.xiaoymin:knife4j-spring:2.0.6">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-spring/2.0.6/knife4j-spring-2.0.6.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-spring/2.0.6/knife4j-spring-2.0.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-spring/2.0.6/knife4j-spring-2.0.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_github_xiaoymin_knife4j_annotations_2_0_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_github_xiaoymin_knife4j_annotations_2_0_6.xml b/.idea/libraries/Maven__com_github_xiaoymin_knife4j_annotations_2_0_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_github_xiaoymin_knife4j_annotations_2_0_6.xml	
++++ /dev/null	
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.github.xiaoymin:knife4j-annotations:2.0.6">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-annotations/2.0.6/knife4j-annotations-2.0.6.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-annotations/2.0.6/knife4j-annotations-2.0.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-annotations/2.0.6/knife4j-annotations-2.0.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_boot_autoconfigure_2_0_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_boot_autoconfigure_2_0_6.xml b/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_boot_autoconfigure_2_0_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_boot_autoconfigure_2_0_6.xml	
++++ /dev/null	
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.github.xiaoymin:knife4j-spring-boot-autoconfigure:2.0.6">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-spring-boot-autoconfigure/2.0.6/knife4j-spring-boot-autoconfigure-2.0.6.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-spring-boot-autoconfigure/2.0.6/knife4j-spring-boot-autoconfigure-2.0.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-spring-boot-autoconfigure/2.0.6/knife4j-spring-boot-autoconfigure-2.0.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_ui_2_0_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_ui_2_0_6.xml b/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_ui_2_0_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_ui_2_0_6.xml	
++++ /dev/null	
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.github.xiaoymin:knife4j-spring-ui:2.0.6">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-spring-ui/2.0.6/knife4j-spring-ui-2.0.6.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-spring-ui/2.0.6/knife4j-spring-ui-2.0.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-spring-ui/2.0.6/knife4j-spring-ui-2.0.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_boot_starter_2_0_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_boot_starter_2_0_6.xml b/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_boot_starter_2_0_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_boot_starter_2_0_6.xml	
++++ /dev/null	
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.github.xiaoymin:knife4j-spring-boot-starter:2.0.6">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-spring-boot-starter/2.0.6/knife4j-spring-boot-starter-2.0.6.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-spring-boot-starter/2.0.6/knife4j-spring-boot-starter-2.0.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/xiaoymin/knife4j-spring-boot-starter/2.0.6/knife4j-spring-boot-starter-2.0.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file

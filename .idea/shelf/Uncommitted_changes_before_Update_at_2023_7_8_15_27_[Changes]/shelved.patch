@@ -1,0 +1,25 @@
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># 纸片项目须知\r\n\r\n\u200B\t\t本项目为加强图书馆与书籍,用户与图书馆之间的管理,用户可通过该平台对相应的图书馆发出借阅请求,方便双方之间的交流和沟通,做到完全的线上交互........\r\n\r\n## 项目结构\r\n- 当前所在项目为用户前台后端工程,端口号:8081\r\n- common 公共\r\n  - consts 一些常量接口\r\n  - ex 自定义异常\r\n  - pojo.vo 分页功能返回对象PageData\r\n  - security 认证框架相关信息\r\n  - util 工具包\r\n  - web 响应对象\r\n- core 配置包\r\n  - config 配置类包\r\n  - exception 异常捕获\r\n  - filter 过滤器\r\n  - mybatis 一些关于mybatis框架相关配置\r\n- userv1 用户登录注册相关功能\r\n- location 根据用户IP获取用户当前地址\r\n\r\n- 例:功能模块文件夹\r\n  - 功能点文件夹介绍\r\n\r\n# 启动纸片准备工作\r\n\r\n### 代码工程导入:\r\n\r\n本项目分为四部分:\r\n\r\n- 用户前端工程git地址:\r\n- 用户后端工程git地址:\r\n- 后台前端工程git地址:\r\n- 后台后端工程git地址:\r\n\r\n纸片项目环境准备;\r\n\r\n- JDK 1.8\r\n- MariaDB数据库10.5.20 / MySQL数据库\r\n- Node 16.14.2\r\n- Minio服务器 配置本地服务器,修改对应配置文件中的浏览器地址和账户密码\r\n-  ES 7.6.2\r\n-  Git\r\n-  IDEA\r\n\r\n项目启动:\r\n\r\n- 前端工程拉取下来后执行: npm install 下载对应组件\r\n- 执行前端工程: npm run serve\r\n- 后端工程拉取下来后刷新Maven仓库,下载相应依赖\r\n- 启动后端启动类\r\n\r\n# 登录注册流程:\r\n\r\n### 进入浏览器输入网址:http://localhost:9098\r\n\r\n- 注册页面注册\r\n    - 选择右上角去登陆进入登录页面\r\n    - 若无账号则,点击注册,跳转注册页面\r\n    - 通过邮箱注册,按要求输入密码,用户名,密保问题等\r\n    - 注册成功跳转到登录页面\r\n\r\n- 登录页面登录\r\n    - 输入用户名和密码进行登录\r\n    - 登录成功后跳转到首页\r\n\r\n- 忘记密码流程\r\n    - 若忘记密码,可以选择在登录页面进入忘记密码页面\r\n    - 忘记密码找回分为两个方式:密保问题找回和邮箱找回\r\n    - 密保找回:用户名和密保问题的准确性来判断是否本人,方可修改\r\n    - 邮箱找回:输入注册时邮箱账号,验证成功后修改密码,用户名会用邮箱发送给用户\r\n\r\n# 首页查看流程:\r\n\r\n- 点击右上角可以退出登录\r\n- 页面展示轮播图\r\n- 页面展示书籍信息\r\n- 可以进行关键词搜素\r\n- 底部添加了广告连接,点击可跳转\r\n- 其他功能代开发\r\n\r\n\r\n\r\n# 后台功能流程:\r\n\r\n## 进入浏览器输入地址:http://localhost:9091\r\n\r\n- 进入登录页面:只有对应权限用户可以进行操作\r\n    - 可以修改数据库user表中的admin字段,修改为admin,该账户登录后跳转到超级管理员页面\r\n    - 可以修改数据库user表中的admin字段,修改为bookadmin,该账户登录后跳转到图书馆管理员页面\r\n\r\n- 超级管理员使用流程\r\n    - 模块1: 轮播图添加,添加本地图片到minio服务器中,输入题目和序号\r\n    - 模块2: 轮播图展示,把刚添加的图片展示出来,可以进行修改图片\r\n    - 模块3: 展示注册该平台用户信息,可对用户做出操作\r\n    - 模块4: 对全网书籍做出展示,进行管理\r\n    - 模块5: 按不同场馆统计书籍数量,借阅数量,统计用户数量等\r\n    - 模块6: 对用户的举报信息,进行统一的整理\r\n\r\n## 图书馆后台模块\r\n\r\n- 进入对应权限用户登录后台模块\r\n    - 模块1: 书籍添加页面\r\n    - 模块2: 添加后的书籍展示页面,可对相应的书籍进行操作\r\n    - 模块3: 图书馆数据统计,点击量库存量借阅量等\r\n    - 模块4: 对借阅订单的统一展示\r\n    - 模块5: 本图书馆的借阅规则进行导入和编辑\r\n    - 模块6: 预约信息管理,对用户的预约订单进行管理
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+--- a/README.md	(revision 93508edaa5d7d70a2030898d1e1c801fcd10ff56)
++++ b/README.md	(date 1688801222632)
+@@ -28,10 +28,10 @@
+ 
+ 本项目分为四部分:
+ 
+-- 用户前端工程git地址:
+-- 用户后端工程git地址:
+-- 后台前端工程git地址:
+-- 后台后端工程git地址:
++- 用户前端工程git地址:https://github.com/kaixindeluogu/paperfrontpage.git
++- 用户后端工程git地址:https://github.com/jw1795482822/paper-read.git
++- 后台前端工程git地址:https://github.com/kaixindeluogu/front-end-admin-project.git
++- 后台后端工程git地址:https://github.com/kaixindeluogu/paper-read-admin.git
+ 
+ 纸片项目环境准备;
+ 

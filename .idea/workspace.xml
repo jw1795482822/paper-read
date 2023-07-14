@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3371dbda-6325-462f-89a2-412fac4d7bce" name="Changes" comment="ReadME更新">
+      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/AliPay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/AliPayController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/core/config/AliPayConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/userv1/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/userv1/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/userv1/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/userv1/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/test/java/cn/tedu/cn_tedu_v1/bannerTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\.m2\repository" />
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2QmnbQJkwWitZMaKkd107nJWKtF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/ideaproject/me/paper-read1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "18609bf9aa28f03c33be023e87d76e99",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="cn.tedu.cn_tedu_v1.userv1.pojo.dto" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\java\cn\tedu\cn_tedu_v1\common" />
+      <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\java\cn\tedu\cn_tedu_v1\comment" />
+      <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\java\cn\tedu\cn_tedu_v1\comment\consts" />
+      <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\resources\mappers" />
+      <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\resources\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\java\cn\tedu\cn_tedu_v1" />
+      <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\resources\static\img" />
+      <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\resources\static" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.tedu.cn_tedu_v1.comment.security" />
+      <recent name="cn.tedu.cn_tedu_v1.core.filter" />
+      <recent name="cn.tedu.cn_tedu_v1.userv1.pojo.vo" />
+      <recent name="cn.tedu.cn_tedu_v1.core.mybatis" />
+      <recent name="cn.tedu.cn_tedu_v1.config" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CnTeduV1Application">
+    <configuration name="SearchHttpAK" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.tedu.cn_tedu_v1.location.service.SearchHttpAK" />
+      <module name="cn_tedu_v1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.tedu.cn_tedu_v1.location.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="DjangoTestsConfigurationType">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LocationTests.xx" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cn_tedu_v1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.tedu.cn_tedu_v1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.tedu.cn_tedu_v1" />
+      <option name="MAIN_CLASS_NAME" value="cn.tedu.cn_tedu_v1.LocationTests" />
+      <option name="METHOD_NAME" value="xx" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedisTests.xxx" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cn_tedu_v1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.tedu.cn_tedu_v1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.tedu.cn_tedu_v1" />
+      <option name="MAIN_CLASS_NAME" value="cn.tedu.cn_tedu_v1.RedisTests" />
+      <option name="METHOD_NAME" value="xxx" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="login.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/paper-read1/cn_tedu_v1/static/login.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="reg.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/paper-read1/cn_tedu_v1/static/reg.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="CnTeduV1Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cn_tedu_v1" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.tedu.cn_tedu_v1.CnTeduV1Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.LocationTests.xx" />
+        <item itemvalue="Application.SearchHttpAK" />
+        <item itemvalue="JUnit.RedisTests.xxx" />
+        <item itemvalue="JavaScript Debug.reg.html" />
+        <item itemvalue="JavaScript Debug.login.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3371dbda-6325-462f-89a2-412fac4d7bce" name="Changes" comment="" />
+      <created>1685967694802</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685967694802</updated>
+      <workItem from="1685967697651" duration="807000" />
+      <workItem from="1686192334880" duration="18338000" />
+      <workItem from="1686237007755" duration="4163000" />
+      <workItem from="1686271433283" duration="2597000" />
+      <workItem from="1686305701046" duration="10965000" />
+      <workItem from="1686359072522" duration="23813000" />
+      <workItem from="1686397265030" duration="738000" />
+      <workItem from="1686406741241" duration="1825000" />
+      <workItem from="1686531662526" duration="6000" />
+      <workItem from="1686565514254" duration="260000" />
+      <workItem from="1686566331984" duration="63000" />
+      <workItem from="1686566718187" duration="611000" />
+      <workItem from="1686584685627" duration="634000" />
+      <workItem from="1686616420288" duration="17000" />
+      <workItem from="1687781052293" duration="1572000" />
+      <workItem from="1687791564937" duration="4126000" />
+      <workItem from="1687825855697" duration="1271000" />
+      <workItem from="1687845912080" duration="1668000" />
+      <workItem from="1687847696270" duration="16759000" />
+      <workItem from="1687877576760" duration="4458000" />
+      <workItem from="1687912299183" duration="815000" />
+      <workItem from="1687922254810" duration="417000" />
+      <workItem from="1687922863865" duration="224000" />
+      <workItem from="1687944273196" duration="5847000" />
+      <workItem from="1687964888734" duration="3214000" />
+      <workItem from="1687998914624" duration="1393000" />
+      <workItem from="1688019074872" duration="1446000" />
+      <workItem from="1688105296462" duration="11483000" />
+      <workItem from="1688126898670" duration="7623000" />
+      <workItem from="1688142267153" duration="60000" />
+      <workItem from="1688305551477" duration="1852000" />
+      <workItem from="1688373424723" duration="1644000" />
+      <workItem from="1688375840005" duration="842000" />
+      <workItem from="1688377127868" duration="200000" />
+      <workItem from="1688394162324" duration="2536000" />
+      <workItem from="1688431190550" duration="1035000" />
+      <workItem from="1688453552358" duration="76000" />
+      <workItem from="1688454899607" duration="2480000" />
+      <workItem from="1688467275540" duration="10000" />
+      <workItem from="1688482859225" duration="788000" />
+      <workItem from="1688487510968" duration="640000" />
+      <workItem from="1688518650920" duration="162000" />
+      <workItem from="1688552890178" duration="2665000" />
+      <workItem from="1688569563423" duration="1510000" />
+      <workItem from="1688657263763" duration="1471000" />
+      <workItem from="1688659269014" duration="2179000" />
+      <workItem from="1688661640496" duration="24000" />
+      <workItem from="1688662634166" duration="91000" />
+      <workItem from="1688690239973" duration="1271000" />
+      <workItem from="1688714176535" duration="11988000" />
+      <workItem from="1688732095916" duration="8624000" />
+      <workItem from="1688791486260" duration="751000" />
+      <workItem from="1688792805831" duration="3911000" />
+      <workItem from="1688834380148" duration="1606000" />
+      <workItem from="1688988684561" duration="803000" />
+      <workItem from="1688990073723" duration="172000" />
+      <workItem from="1688990270746" duration="1962000" />
+      <workItem from="1689150068115" duration="460000" />
+      <workItem from="1689151197844" duration="399000" />
+      <workItem from="1689172928450" duration="5329000" />
+    </task>
+    <task id="LOCAL-00001" summary="第二次测试">
+      <created>1685967875811</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685967875811</updated>
+    </task>
+    <task id="LOCAL-00002" summary="登陆注册代码上传">
+      <created>1686209004545</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686209004545</updated>
+    </task>
+    <task id="LOCAL-00003" summary="登陆注册代码第二次修改:前端增加正则表达式,因数据库发生变化修改字段">
+      <created>1686240544345</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1686240544345</updated>
+    </task>
+    <task id="LOCAL-00004" summary="登陆注册代码第三次修改:后端增加邮箱发送验证码注册功能">
+      <created>1686328345472</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1686328345472</updated>
+    </task>
+    <task id="LOCAL-00005" summary="登陆注册代码第四次修改:后端增加邮箱注册验证,验证邮箱唯一性,增加必要的注解">
+      <created>1686360330145</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686360330146</updated>
+    </task>
+    <task id="LOCAL-00006" summary="登陆注册代码第四次修改:后端增加邮箱注册验证,验证邮箱唯一性,增加必要的注解">
+      <created>1686361265118</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1686361265118</updated>
+    </task>
+    <task id="LOCAL-00007" summary="登陆注册代码第五次修改:前端代码增加注册逻辑">
+      <created>1686382274361</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1686382274361</updated>
+    </task>
+    <task id="LOCAL-00008" summary="登陆注册代码第六次修改:增加邮箱找回密码功能,增加前端页面">
+      <created>1686397358790</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1686397358790</updated>
+    </task>
+    <task id="LOCAL-00009" summary="登陆注册页面修改配置增加依赖">
+      <created>1687856668770</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1687856668770</updated>
+    </task>
+    <task id="LOCAL-00010" summary="登陆注册页面代码修改,给前端返回JWT">
+      <created>1688106434654</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1688106434654</updated>
+    </task>
+    <task id="LOCAL-00011" summary="登陆注册功能增加公共配置,增加拦截器">
+      <created>1688107603631</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688107603631</updated>
+    </task>
+    <task id="LOCAL-00012" summary="登陆注册功能增加公共配置,增加拦截器">
+      <created>1688107642598</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1688107642598</updated>
+    </task>
+    <task id="LOCAL-00013" summary="登陆注册功能增加公共配置,增加拦截器2">
+      <created>1688114035050</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1688114035050</updated>
+    </task>
+    <task id="LOCAL-00014" summary="登陆注册功能增加公共配置,增加拦截器3">
+      <created>1688128604942</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1688128604942</updated>
+    </task>
+    <task id="LOCAL-00015" summary="增加JWT过滤器和异常处理,修改security配置">
+      <created>1688431301708</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1688431301708</updated>
+    </task>
+    <task id="LOCAL-00016" summary="修改登录注册模块被指,增加readme文档">
+      <created>1688690534457</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1688690534457</updated>
+    </task>
+    <task id="LOCAL-00017" summary="增加注册,邮箱找回验证码存储到redis流程">
+      <created>1688720482802</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1688720482802</updated>
+    </task>
+    <task id="LOCAL-00018" summary="增加根据IP定位功能,百度地图接口">
+      <created>1688791749471</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1688791749471</updated>
+    </task>
+    <task id="LOCAL-00019" summary="ReadME更新">
+      <created>1688801312023</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1688801312023</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第二次测试" />
+    <MESSAGE value="登陆注册代码上传" />
+    <MESSAGE value="登陆注册代码第二次修改:前端增加正则表达式,因数据库发生变化修改字段" />
+    <MESSAGE value="登陆注册代码第三次修改:后端增加邮箱发送验证码注册功能" />
+    <MESSAGE value="登陆注册代码第四次修改:后端增加邮箱注册验证,验证邮箱唯一性,增加必要的注解" />
+    <MESSAGE value="登陆注册代码第五次修改:前端代码增加注册逻辑" />
+    <MESSAGE value="登陆注册代码第六次修改:增加邮箱找回密码功能,增加前端页面" />
+    <MESSAGE value="登陆注册页面修改配置增加依赖" />
+    <MESSAGE value="登陆注册页面代码修改,给前端返回JWT" />
+    <MESSAGE value="登陆注册功能增加公共配置,增加拦截器" />
+    <MESSAGE value="登陆注册功能增加公共配置,增加拦截器2" />
+    <MESSAGE value="登陆注册功能增加公共配置,增加拦截器3" />
+    <MESSAGE value="增加JWT过滤器和异常处理,修改security配置" />
+    <MESSAGE value="修改登录注册模块被指,增加readme文档" />
+    <MESSAGE value="增加注册,邮箱找回验证码存储到redis流程" />
+    <MESSAGE value="增加根据IP定位功能,百度地图接口" />
+    <MESSAGE value="ReadME更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="ReadME更新" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/cn_tedu_v1/src/main/resources/static/login.html</url>
+          <line>88</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="io.lettuce.core.RedisConnectionException" package="io.lettuce.core" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
