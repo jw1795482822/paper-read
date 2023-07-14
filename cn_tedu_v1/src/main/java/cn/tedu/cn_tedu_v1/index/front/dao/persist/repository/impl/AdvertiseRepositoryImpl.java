@@ -1,8 +1,9 @@
 package cn.tedu.cn_tedu_v1.index.front.dao.persist.repository.impl;
 
-import cn.tedu.cn_tedu_v1.index.front.dao.persist.mapper.AdvertiseMapper;
+import cn.tedu.cn_tedu_v1.index.front.dao.persist.mapper.FrontMapper;
 import cn.tedu.cn_tedu_v1.index.front.dao.persist.repository.IAdvertiseRepository;
 import cn.tedu.cn_tedu_v1.index.front.pojo.vo.AdvertiseVO;
+import cn.tedu.cn_tedu_v1.index.front.pojo.vo.BookBBVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,7 +15,7 @@ import java.util.List;
 public class AdvertiseRepositoryImpl implements IAdvertiseRepository {
 
     @Autowired
-    AdvertiseMapper mapper;
+    FrontMapper mapper;
 
 //    @Override
 //    public AdvertiseVO getAdverList() {
@@ -26,5 +27,10 @@ public class AdvertiseRepositoryImpl implements IAdvertiseRepository {
     public List<AdvertiseVO> selectList() {
         log.debug("处理查询");
         return mapper.selectList();
+    }
+
+    @Override
+    public List<BookBBVO> BookByBorrow() {
+        return mapper.BookByBorrow();
     }
 }

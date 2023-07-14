@@ -1,6 +1,6 @@
 package cn.tedu.cn_tedu_v1.index.front.dao.persist.repository.impl;
 
-import cn.tedu.cn_tedu_v1.index.front.dao.persist.mapper.AdvertiseMapper;
+import cn.tedu.cn_tedu_v1.index.front.dao.persist.mapper.FrontMapper;
 import cn.tedu.cn_tedu_v1.index.front.dao.persist.repository.ICategoryRepository;
 import cn.tedu.cn_tedu_v1.index.front.pojo.vo.CategoryVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.List;
 @Repository
 public class CategoryRepositoryImpl implements ICategoryRepository {
     @Autowired
-    AdvertiseMapper mapper;
+    FrontMapper mapper;
 
     @Override
     public List<CategoryVO> selectCategory() {

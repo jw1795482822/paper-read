@@ -14,7 +14,7 @@
             SELECT id,name,author,cover,introduction,publish_time
             FROM zhipian_shop.zhipian_book
             WHERE id!=0
-            ORDER BY id DESC LIMIT 0,20
+            ORDER BY id DESC LIMIT 0,6
         </select>
 
 <!--    </select>-->
