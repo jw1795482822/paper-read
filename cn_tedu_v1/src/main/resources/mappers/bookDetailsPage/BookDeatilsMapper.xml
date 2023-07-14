@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.cn_tedu_v1.ArticleDetailsPage.persist.mapper.BookDetailsPageMapper">
+<!--    /**-->
+<!--    * 查询文章信息根据id-->
+<!--    * @return 统计查询-->
+<!--    */-->
+<!--    BookDetailsPage listBookDetailsPage(Long id);-->
+<select id="listBookDetailsPage" resultMap="bookDetailPage">
+    SELECT
+        id,name,author,borrowing_volume,introduction,publisher,cover,publish_time
+    FROM zhipian_book
+    WHERE id = #{id}
+</select>
+    <resultMap id="bookDetailPage"
+               type="cn.tedu.cn_tedu_v1.ArticleDetailsPage.pojo.entity.BookDetailsPage">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="author" property="author"/>
+        <result column="borrowing_volume" property="borrowingVolume"/>
+        <result column="introduction" property="introduction"/>
+        <result column="publisher" property="publisher"/>
+        <result column="cover" property="cover"/>
+        <result column="publish_time" property="publishTime"/>
+    </resultMap>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
