@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.cn_tedu_v1.index.category.persist.mapper.BookMapper">
+
+    <!-- List<ArticleListItemVO> listByCategoryId(Long categoryId); -->
+    <select id="listByCategoryId" resultMap="ListResultMap">
+        SELECT
+        <include refid="ListQueryFields"/>
+        FROM
+        zhipian_shop.zhipian_book
+        LEFT JOIN zhipian_shop.zhipian_category ON zhipian_book.category_id=zhipian_category.id
+        WHERE
+        zhipian_book.category_id=#{categoryId}
+        ORDER BY
+        zhipian_book.sort DESC,
+        zhipian_book.id DESC
+    </select>
+
+    <sql id="ListQueryFields">
+        <if test="true">
+            zhipian_category.name,
+            zhipian_book.category_id,
+            zhipian_book.author,
+            zhipian_book.name,
+            zhipian_book.publish_time,
+            zhipian_book.publisher,
+            zhipian_book.cover,
+            zhipian_book.store_amount,
+            zhipian_book.sort,
+            zhipian_book.introduction,
+            zhipian_book.borrowing_volume,
+            zhipian_book.library_id,
+            zhipian_book.user_id,
+            zhipian_book.status
+        </if>
+    </sql>
+
+    <resultMap id="ListResultMap"
+               type="cn.tedu.cn_tedu_v1.index.category.pojo.vo.BookListItemVO">
+        <id column="id" property="id"/>
+        <result column="library_id" property="libraryId"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="user_id" property="userId"/>
+        <result column="name" property="name"/>
+        <result column="author" property="author"/>
+        <result column="publish_time" property="publishTime"/>
+        <result column="publisher" property="publisher"/>
+        <result column="status" property="status"/>
+        <result column="cover" property="cover"/>
+        <result column="store_amount" property="storeAmount"/>
+        <result column="sort" property="sort"/>
+        <result column="introduction" property="introduction"/>
+        <result column="borrowing_volume" property="borrowingVolume"/>
+    </resultMap>
+</mapper>
