@@ -4,9 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3371dbda-6325-462f-89a2-412fac4d7bce" name="Changes" comment="PDFBUG修改">
+    <list default="true" id="3371dbda-6325-462f-89a2-412fac4d7bce" name="Changes" comment="首页白名单配置">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cn_hutool_hutool_all_5_7_20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alipay_sdk_alipay_sdk_java_4_22_110_ALL.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_62.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/AliPay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/AliPayController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/core/config/AliPayConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/749866f2-6dc7-4ad4-8c76-381aa6090d73.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_7_7_17_00_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_7_7_17_00__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/userv1/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/userv1/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,7 +338,8 @@
       <workItem from="1689150068115" duration="460000" />
       <workItem from="1689151197844" duration="399000" />
       <workItem from="1689172928450" duration="5329000" />
-      <workItem from="1689315056611" duration="9762000" />
+      <workItem from="1689315056611" duration="9812000" />
+      <workItem from="1689347564501" duration="4695000" />
     </task>
     <task id="LOCAL-00001" summary="第二次测试">
       <created>1685967875811</created>
@@ -487,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689335625374</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="首页白名单配置">
+      <created>1689341076452</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1689341076452</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,7 +542,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -553,7 +575,8 @@
     <MESSAGE value="1" />
     <MESSAGE value="首页登录限制解除" />
     <MESSAGE value="PDFBUG修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="PDFBUG修改" />
+    <MESSAGE value="首页白名单配置" />
+    <option name="LAST_COMMIT_MESSAGE" value="首页白名单配置" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XDebuggerManager">
