@@ -35,8 +35,8 @@ public class BookDetailsPageController {
     @ApiOperation("根据id查询文章内容信息")
     private JsonResult selectUrlByBookId(@PathVariable Long id){
         log.warn("开始处理 文章内容信息的查询 根据id:{}",id);
-        DateVO dateVO = dateService.selectUrlByBookId(id);
-        System.out.println(dateVO.getPdfUrl());
+        String dateVO = dateService.selectUrlByBookId(id);
+
         return JsonResult.ok(dateVO);
     }
 }
