@@ -20,7 +20,7 @@ public class SearchController {
     @Autowired
     private ISearchService searchService ;
 
-    @RequestMapping("/{wd}/search")
+    @RequestMapping("/{wd}")
     @PreAuthorize("hasAuthority('user')")
     public JsonResult search(@PathVariable String wd){
         log.warn("开始处理 查询语句: {}",wd);
