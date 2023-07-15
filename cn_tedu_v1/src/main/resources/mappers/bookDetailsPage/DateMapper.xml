@@ -8,16 +8,16 @@
     <!--    * @return 统计查询-->
     <!--    */-->
     <!--    BookDetailsPage listBookDetailsPage(Long id);-->
-    <select id="selectUrlByBookId" resultMap="DatePage">
+    <select id="selectUrlByBookId" resultType="java.lang.String">
         SELECT
-            zd.id,zd.pdf_url
+            zd.pdf_url
         FROM zhipian_book zb
                  left JOIN zhipian_data zd on zb.id = zd.book_id
         WHERE zb.id = #{id}
     </select>
     <resultMap id="DatePage"
                type="cn.tedu.cn_tedu_v1.ArticleDetailsPage.pojo.vo.DateVO">
-        <id column="id" property="id"/>
+
         <result column="pdf_url" property="pdfUrl"/>
     </resultMap>
 

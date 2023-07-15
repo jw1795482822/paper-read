@@ -15,9 +15,7 @@ public class DateServiceImpl implements IDateService {
     @Override
     public String selectUrlByBookId(Long id) {
         log.warn("根据id{}查询文章内容信息",id);
-        String dateVO = dateRepository.selectUrlByBookId(id);
-        System.out.println(dateVO);
-        log.warn("DateVO:{}",dateVO);
-        return dateVO;
+
+        return dateRepository.selectUrlByBookId(id);
     }
 }
