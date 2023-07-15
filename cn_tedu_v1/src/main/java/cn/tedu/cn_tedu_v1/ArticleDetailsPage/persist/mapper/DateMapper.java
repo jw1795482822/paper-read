@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DateMapper extends BaseMapper<Date> {
-    DateVO selectUrlByBookId(Long id);
+    String selectUrlByBookId(Long id);
 }

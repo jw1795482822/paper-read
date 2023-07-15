@@ -10,10 +10,6 @@ import java.io.Serializable;
 @Data
 public class DateVO implements Serializable {
     /**
-     * 唯一标识
-     * */
-    private Long id;
-    /**
      * PDF文件URL
      */
     private String pdfUrl;
