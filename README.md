@@ -18,7 +18,8 @@
   - mybatis 一些关于mybatis框架相关配置
 - userv1 用户登录注册相关功能
 - location 根据用户IP获取用户当前地址
-- front 首页mvc模块  实现广告的查询功能
+- index 首页模块  
+- alipay 支付宝模拟支付模块
 
 - 例:功能模块文件夹
   - 功能点文件夹介绍

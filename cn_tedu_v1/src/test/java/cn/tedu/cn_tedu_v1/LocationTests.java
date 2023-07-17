@@ -20,7 +20,12 @@ public class LocationTests {
 
     @Test
     void xx() throws IOException {
-        String Ip = "111.206.214.37";
+        /*省市	中国移动DNS服务器IP大全	中国移动DNS服务器IP大全
+        中国移动IPv6DNS	2409:8088::a	2409:8088::b
+        安徽移动DNS	211.138.180.2	211.138.180.3
+        山东移动DNS	218.201.96.130	211.137.191.26
+        山东移动DNS	218.201.124.18	218.201.124.19*/
+        String Ip = "218.201.96.130";
         locationService.getLocation(Ip);
     }
 }

@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3371dbda-6325-462f-89a2-412fac4d7bce" name="Changes" comment="PDFBUG修改">
+    <list default="true" id="3371dbda-6325-462f-89a2-412fac4d7bce" name="Changes" comment="支付宝支付">
+      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/test/java/cn/tedu/cn_tedu_v1/Test1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_7_8_15_27_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_7_8_15_27__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/ArticleDetailsPage/controller/BookDetailsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/ArticleDetailsPage/controller/BookDetailsPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/ArticleDetailsPage/persist/mapper/DateMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/ArticleDetailsPage/persist/mapper/DateMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/ArticleDetailsPage/service/impl/DateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/ArticleDetailsPage/service/impl/DateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/core/config/MybatisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/core/config/MybatisConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/userv1/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/userv1/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/resources/mappers/bookDetailsPage/DateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/resources/mappers/bookDetailsPage/DateMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/test/java/cn/tedu/cn_tedu_v1/SearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/test/java/cn/tedu/cn_tedu_v1/SearchTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +70,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
@@ -97,7 +107,7 @@
       <recent name="cn.tedu.cn_tedu_v1.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.CnTeduV1Application">
+  <component name="RunManager" selected="JUnit.Test1.a">
     <configuration name="SearchHttpAK" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.tedu.cn_tedu_v1.location.service.SearchHttpAK" />
       <module name="cn_tedu_v1" />
@@ -163,8 +173,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="login.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/paper-read1/cn_tedu_v1/static/login.html" useBuiltInWebServerPort="true">
-      <method v="2" />
+    <configuration name="Test1.a" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cn_tedu_v1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.tedu.cn_tedu_v1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.tedu.cn_tedu_v1" />
+      <option name="MAIN_CLASS_NAME" value="cn.tedu.cn_tedu_v1.Test1" />
+      <option name="METHOD_NAME" value="a" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="reg.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/paper-read1/cn_tedu_v1/static/reg.html" useBuiltInWebServerPort="true">
       <method v="2" />
@@ -248,11 +271,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Test1.a" />
         <item itemvalue="JUnit.LocationTests.xx" />
         <item itemvalue="Application.SearchHttpAK" />
         <item itemvalue="JUnit.RedisTests.xxx" />
         <item itemvalue="JavaScript Debug.reg.html" />
-        <item itemvalue="JavaScript Debug.login.html" />
       </list>
     </recent_temporary>
   </component>
@@ -324,7 +347,10 @@
       <workItem from="1689150068115" duration="460000" />
       <workItem from="1689151197844" duration="399000" />
       <workItem from="1689172928450" duration="5329000" />
-      <workItem from="1689315056611" duration="9762000" />
+      <workItem from="1689315056611" duration="9812000" />
+      <workItem from="1689347564501" duration="5066000" />
+      <workItem from="1689384731456" duration="15298000" />
+      <workItem from="1689409597412" duration="2435000" />
     </task>
     <task id="LOCAL-00001" summary="第二次测试">
       <created>1685967875811</created>
@@ -487,7 +513,21 @@
       <option name="project" value="LOCAL" />
       <updated>1689335625374</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="首页白名单配置">
+      <created>1689341076452</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1689341076452</updated>
+    </task>
+    <task id="LOCAL-00025" summary="支付宝支付">
+      <created>1689352657070</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1689352657070</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,7 +560,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -553,7 +593,9 @@
     <MESSAGE value="1" />
     <MESSAGE value="首页登录限制解除" />
     <MESSAGE value="PDFBUG修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="PDFBUG修改" />
+    <MESSAGE value="首页白名单配置" />
+    <MESSAGE value="支付宝支付" />
+    <option name="LAST_COMMIT_MESSAGE" value="支付宝支付" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XDebuggerManager">
