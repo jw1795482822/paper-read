@@ -101,8 +101,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/v1/adver/adverlist",
                 "/v1/adver/categoryList",
                 "/v1/adver/BookByBorrow",
-                "/alipay/pay",
-                "/alipay/notify",
+                "/alipay/**",
                 "/v1/bookDetailsPage/Basic-information/{id}",
                 "/v1/bookDetailsPage/Article-content/{id}"
         };

@@ -1,11 +1,11 @@
-package cn.tedu.cn_tedu_v1.alipay;
+package cn.tedu.cn_tedu_v1.alipay.service.impl;
 
-/**
- * 支付宝支付业务类
- * Author = bianmy
- * DATE = 2023/7/15 0:10
- */
 import cn.hutool.json.JSONObject;
+import cn.tedu.cn_tedu_v1.alipay.dao.repository.IOrdersRepository;
+import cn.tedu.cn_tedu_v1.alipay.pojo.entity.AliPay;
+import cn.tedu.cn_tedu_v1.alipay.pojo.entity.Orders;
+import cn.tedu.cn_tedu_v1.alipay.service.IOrdersService;
+import cn.tedu.cn_tedu_v1.common.consts.ApiPayConsts;
 import cn.tedu.cn_tedu_v1.core.config.AliPayConfig;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
@@ -13,40 +13,46 @@ import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-// xjlugv6874@sandbox.com
-// 9428521.24 - 30 = 9428491.24 + 30 = 9428521.24
-@RestController
-@RequestMapping("/alipay")
-public class AliPayController {
+/**
+ * Author = bianmy
+ * DATE = 2023/7/17 20:31
+ */
+@Repository
+@Slf4j
+public class OrdersServiceImpl implements IOrdersService, ApiPayConsts {
 
-    //网关地址
-    private static final String GATEWAY_URL = "https://openapi-sandbox.dl.alipaydev.com/gateway.do";
-    private static final String FORMAT = "JSON";
-    private static final String CHARSET = "UTF-8";
-    //签名方式
-    private static final String SIGN_TYPE = "RSA2";
+    @Autowired
+    private IOrdersRepository ordersRepository;
 
     @Resource
     private AliPayConfig aliPayConfig;
 
-   /* @Resource
-    private OrdersMapper ordersMapper;*/
+    public OrdersServiceImpl() {
+        log.info("支付宝订单service层启动");
+    }
 
-    @GetMapping("/pay") // &subject=xxx&traceNo=xxx&totalAmount=xxx
-    public void pay(AliPay aliPay, HttpServletResponse httpResponse) throws Exception {
+    /**
+     * 支付宝回传页面方法
+     *
+     * @param aliPay       &subject=xxx&traceNo=xxx&totalAmount=xxx
+     * @param httpResponse
+     */
+    @Override
+    public void pay(AliPay aliPay, HttpServletResponse httpResponse) throws IOException {
+
+
         // 1. 创建Client，通用SDK提供的Client，负责调用支付宝的API
         AlipayClient alipayClient = new DefaultAlipayClient(GATEWAY_URL, aliPayConfig.getAppId(),
                 aliPayConfig.getAppPrivateKey(), FORMAT, CHARSET, aliPayConfig.getAlipayPublicKey(), SIGN_TYPE);
@@ -61,6 +67,15 @@ public class AliPayController {
         bizContent.set("product_code", "FAST_INSTANT_TRADE_PAY");  // 固定配置
         request.setBizContent(bizContent.toString());
 
+        //订单信息插入表中
+        Orders orders = new Orders();
+        BeanUtils.copyProperties(aliPay, orders);
+        double totalAmount=Double.valueOf(aliPay.getTotalAmount());
+        orders.setTotalAmount((int) (totalAmount * 100));//金额单位为分
+        orders.setTradeStatus(1);//未支付
+        ordersRepository.insert(orders);
+
+
         // 执行请求，拿到响应的结果，返回给浏览器
         String form = "";
         try {
@@ -74,8 +89,14 @@ public class AliPayController {
         httpResponse.getWriter().close();
     }
 
-    @PostMapping("/notify")  // 注意这里必须是POST接口
-    public String payNotify(HttpServletRequest request) throws Exception {
+    /**
+     * 根据回调接口传来的参数修改订单信息
+     *
+     * @param request
+     */
+    @Override
+    public int payNotify(HttpServletRequest request) throws AlipayApiException {
+        log.info("支付回调请求处理");
         if (request.getParameter("trade_status").equals("TRADE_SUCCESS")) {
             System.out.println("=========支付宝异步回调========");
 
@@ -96,28 +117,34 @@ public class AliPayController {
             // 支付宝验签
             if (checkSignature) {
                 // 验签通过
-                System.out.println("交易名称: " + params.get("subject"));
-                System.out.println("交易状态: " + params.get("trade_status"));
-                System.out.println("支付宝交易凭证号: " + params.get("trade_no"));
-                System.out.println("商户订单号: " + params.get("out_trade_no"));
-                System.out.println("交易金额: " + params.get("total_amount"));
-                System.out.println("买家在支付宝唯一id: " + params.get("buyer_id"));
-                System.out.println("买家付款时间: " + params.get("gmt_payment"));
-                System.out.println("买家付款金额: " + params.get("buyer_pay_amount"));
+                log.info("交易名称:{} ", params.get("subject"));
+                log.info("交易状态:{} " , params.get("trade_status"));
+                log.info("支付宝交易凭证号:{} " , params.get("trade_no"));
+                log.info("商户订单号: {}" , params.get("out_trade_no"));
+                log.info("交易金额: {}" , params.get("total_amount"));
+                log.info("买家在支付宝唯一id:{} " , params.get("buyer_id"));
+                log.info("买家付款时间: {}" , params.get("gmt_payment"));
+                log.info("买家付款金额: {}" , params.get("buyer_pay_amount"));
 
-                // 查询订单
-                /*QueryWrapper<Orders> queryWrapper = new QueryWrapper<>();
-                queryWrapper.eq("order_id", outTradeNo);
-                Orders orders = ordersMapper.selectOne(queryWrapper);
+                //修改订单信息
+                Orders orders = new Orders();
+                orders.setTradeStatus(2);//已支付
+                orders.setOutTradeNo(params.get("trade_no"));
+                orders.setBuyerId(params.get("buyer_id"));
+                orders.setGmtPayment(params.get("gmt_payment"));
+                double payAmount = Double.valueOf(params.get("buyer_pay_amount"));
+                orders.setBuyerPayAmount((int)(payAmount*100));
+                log.info("修改订单信息实体类参数：{}",orders);
 
-                if (orders != null) {
-                    orders.setAlipayNo(alipayTradeNo);
-                    orders.setPayTime(new Date());
-                    orders.setState("已支付");
-                    ordersMapper.updateById(orders);
-                }*/
+                QueryWrapper<Orders> queryWrapper = new QueryWrapper<>();
+                queryWrapper.eq("trace_no",params.get("out_trade_no"));
+                return ordersRepository.update(orders,queryWrapper);
+
             }
         }
-        return "success";
+        return 0;//修改失败，未支付
+
     }
+
+
 }
