@@ -28,6 +28,14 @@ public enum ServiceCode {
      * 删除失败
      * /
     DELETE_ERROR(49999),
+     /**
+     * 错误：上传数据为空
+     */
+    ERROR_UPLOAD_EMPTY(900000),
+    /**
+     * 数据上传错误
+     */
+    ERROR_SECURITY_QUESTION(60000),
     /**
      * IO异常
      */

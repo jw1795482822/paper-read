@@ -26,7 +26,7 @@ public class UserPersonalParam {
     private Long userID;
 
     /**
-     * 密码
+     * 用户输入的原密码 用作对比不存入数据库
      */
     private String passwordJ;
 }

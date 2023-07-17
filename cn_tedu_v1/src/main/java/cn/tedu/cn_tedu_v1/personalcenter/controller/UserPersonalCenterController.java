@@ -31,7 +31,8 @@ public class UserPersonalCenterController {
     @Autowired
     private ISecurityPersonalRepository securityPersonalRepository;
 
-
+    @ApiOperation("查看个人信息")
+    @ApiOperationSupport(order = 311)
     @GetMapping("/center/{id}")
     @PreAuthorize("hasAuthority('admin')")
     public JsonResult search(@PathVariable Long id){
