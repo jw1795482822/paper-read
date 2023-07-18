@@ -15,6 +15,10 @@ public enum ServiceCode {
     /**
      * 错误：请求参数格式错误
      */
+    /**
+     * 订单未支付或支付异常，请重新支付
+     */
+    ERROR_NOT_PAY(30001),
     ERROR_BAD_REQUEST(40000),
     /**
      * 错误：数据不存在
@@ -28,6 +32,14 @@ public enum ServiceCode {
      * 删除失败
      * /
     DELETE_ERROR(49999),
+     /**
+     * 错误：上传数据为空
+     */
+    ERROR_UPLOAD_EMPTY(900000),
+    /**
+     * 数据上传错误
+     */
+    ERROR_SECURITY_QUESTION(60000),
     /**
      * IO异常
      */
@@ -41,7 +53,14 @@ public enum ServiceCode {
     ERROR_DELETE(50100),
 
 
+
+
     ERROR_UPDATE(50200),
+
+    /**
+     * 参数不能为空
+     */
+    ERROR_NOT_NULL(8888),
     /**
      * 错误：其它异常
      */

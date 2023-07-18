@@ -20,8 +20,8 @@ public class SearchController {
     @Autowired
     private ISearchService searchService ;
 
-    @RequestMapping("/{wd}/search")
-    @PreAuthorize("hasAuthority('user')")
+    @RequestMapping("/{wd}")
+    @PreAuthorize("hasAuthority('admin')")
     public JsonResult search(@PathVariable String wd){
         log.warn("开始处理 查询语句: {}",wd);
         List<BookANDLibraryListVO> list = searchService.selectByWd(wd);

@@ -5,6 +5,6 @@ import cn.tedu.cn_tedu_v1.ArticleDetailsPage.pojo.vo.DateVO;
 
 public interface IDateService {
 
-    DateVO selectUrlByBookId(Long id);
+    String selectUrlByBookId(Long id);
 
 }

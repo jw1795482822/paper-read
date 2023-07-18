@@ -16,7 +16,7 @@ public class DateRepositoryImpl implements IDateRepository {
     @Autowired
     private DateMapper dateMapper;
     @Override
-    public DateVO selectUrlByBookId(Long id) {
+    public String selectUrlByBookId(Long id) {
         log.warn("根据id{}查询文章内容信息",id);
         return dateMapper.selectUrlByBookId(id);
     }

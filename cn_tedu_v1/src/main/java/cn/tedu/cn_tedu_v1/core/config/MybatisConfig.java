@@ -12,7 +12,12 @@ import org.springframework.context.annotation.Configuration;
                 "cn.tedu.cn_tedu_v1.bookdeatils.persist.mapper",
                 "cn.tedu.cn_tedu_v1.**.**.mapper",
                 "cn.tedu.cn_tedu_v1.zhangxin.dao.persist.mapper",
-                "cn.tedu.cn_tedu_v1.ArticleDetailsPage.persist.mapper"
+                "cn.tedu.cn_tedu_v1.ArticleDetailsPage.persist.mapper",
+                "cn.tedu.cn_tedu_v1.ArticleDetailsPage.persist.mapper.DateMapper",
+                "cn.tedu.cn_tedu_v1.alipay.dao.mapper.OrdersMapper",
+                "cn.tedu.cn_tedu_v1.personalcenter.dao.persist.mapper",
+                "cn.tedu.cn_tedu_v1.favorites.dao.mapper"
+
         })
 public class MybatisConfig {
 }

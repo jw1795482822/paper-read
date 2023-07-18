@@ -4,8 +4,9 @@ import cn.tedu.cn_tedu_v1.ArticleDetailsPage.pojo.entity.Date;
 import cn.tedu.cn_tedu_v1.ArticleDetailsPage.pojo.vo.DateVO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
+import cn.tedu.cn_tedu_v1.ArticleDetailsPage.pojo.vo.DateVO;
 
 @Repository
 public interface DateMapper extends BaseMapper<Date> {
-    DateVO selectUrlByBookId(Long id);
+    String selectUrlByBookId(Long id);
 }

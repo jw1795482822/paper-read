@@ -14,6 +14,7 @@ import java.util.List;
 public class SearchTest {
     @Autowired
     ISearchService searchService;
+
     @Test
     void x(){
         String i = "崔傲";
