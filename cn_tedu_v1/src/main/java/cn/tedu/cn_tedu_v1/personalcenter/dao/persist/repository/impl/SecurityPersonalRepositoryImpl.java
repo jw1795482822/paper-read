@@ -24,7 +24,7 @@ public class SecurityPersonalRepositoryImpl implements ISecurityPersonalReposito
     }
 
     @Override
-    public List<SecurityPersonalVO> selectsecurity(Long userId) {
+    public SecurityPersonalVO selectsecurity(Long userId) {
         log.debug("开始查询[密保问题 密保答案] : {}" , userId);
         return securityPersonalMapper.selectsecurity(userId);
     }

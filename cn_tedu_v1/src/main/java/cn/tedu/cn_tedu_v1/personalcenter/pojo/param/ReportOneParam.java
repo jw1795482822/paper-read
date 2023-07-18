@@ -3,35 +3,27 @@ package cn.tedu.cn_tedu_v1.personalcenter.pojo.param;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
+
 import java.time.LocalDateTime;
 
-/**
- * wsk
- * 修改密码
- */
 @Data
-public class UserPersonalParam {
+public class ReportOneParam {
     /**
-     * 密码
+     * 举报内容
      */
-    private String password;
+    private String reportContent;
     /**
-     * 问题
+     * 图书ID
      */
-    private String question;
+    private Long bookId;
     /**
-     * 答案
+     * 图书馆ID
      */
-    private String answer;
+    private Long libraryId;
     /**
-     * 用户Id
+     * 用户ID
      */
-    private Long userID;
-
-    /**
-     * 用户输入的原密码 用作对比不存入数据库
-     */
-    private String passwordJ;
+    private Long userId;
     /**
      * 最后修改时间
      */

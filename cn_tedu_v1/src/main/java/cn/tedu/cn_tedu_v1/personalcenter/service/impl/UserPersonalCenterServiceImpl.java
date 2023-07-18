@@ -42,6 +42,38 @@ public class UserPersonalCenterServiceImpl implements IUserPersonalCenterService
         User user = new User();
         BeanUtils.copyProperties(userPersonalCenterParam, user);
         user.setId(userPersonalCenterParam.getId());
+
+        // 设置性别输入格式
+        String gender = "^(男|女)$";
+        // 判断性别是否符合格式
+        if (!userPersonalCenterParam.getGender().matches(gender)) {
+            String message = "请输入 '男' 或 '女' ";
+            throw new ServiceException(ServiceCode.ERROR_SECURITY_QUESTION, message);
+        }
+
+        if (userPersonalCenterParam.getPhone_number() == null || userPersonalCenterParam.equals("")){
+            String message = "手机号不能为空!";
+            throw new ServiceException(ServiceCode.ERROR_SECURITY_QUESTION, message);
+        }
+
+        // 设置手机号输入格式
+        String phoneNumber = "^(\\+?\\d{1,3})?[1-9]\\d{4,14}$";
+        // 判断手机号是否符合格式
+        if (!userPersonalCenterParam.getPhone_number().matches(phoneNumber)) {
+            String message = "请输入合法手机号!";
+            throw new ServiceException(ServiceCode.ERROR_SECURITY_QUESTION, message);
+        }
+
+        // TODO 数据库身份号数据类型为整数    实际需要String 类型
+//        // TODO 设置身份证号输入格式
+//        String idCardNumber = "^\\d{17}(\\d|X|x)$";
+//        // 判断身份证号是否符合格式
+//        if (!userPersonalCenterParam.getId_number().matches(idCardNumber)) {
+//            String message = "身份证号不合法!";
+//            throw new ServiceException(ServiceCode.ERROR_SECURITY_QUESTION, message);
+//        }
+
+        // 判断昵称 是否为空
         if (userPersonalCenterParam.getNick_name() == null || userPersonalCenterParam.getNick_name().equals("")){
             String message = "昵称不能为空!";
             throw new ServiceException(ServiceCode.ERROR_UPLOAD_EMPTY, message);
@@ -50,22 +82,19 @@ public class UserPersonalCenterServiceImpl implements IUserPersonalCenterService
     }
 
     @Override
-    public void updateInfoByUserId(UserPersonalParam userPersonalParam) {
+    public void updateInfoByUserId(Long id , UserPersonalParam userPersonalParam) {
         User user = new User();
         BeanUtils.copyProperties(userPersonalParam, user);
-        user.setId(userPersonalParam.getUserID());
+        user.setId(id);
 
         // 根据用户ID查询密保问题以及答案 用来修改密码时和用户输入的答案进行对比
-        List<SecurityPersonalVO> selectsecurity = securityPersonalRepository.selectsecurity(userPersonalParam.getUserID());
+        SecurityPersonalVO selectsecurity = securityPersonalRepository.selectsecurity(id);
         // 查询出 用户现在密码 用来和用户输入的原密码对比
-        List<UserPersonalCenterVO> personalCenterVOS = userPersonalCenterRepository.selectList(userPersonalParam.getUserID());
+        List<UserPersonalCenterVO> personalCenterVOS = userPersonalCenterRepository.selectList(id);
 
         // 创建BCryptPasswordEncoder对象
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        // 问题
-        String question = "";
-        // 答案
-        String answer = "";
+
         // 现密码
         String password = "";
         for (UserPersonalCenterVO userPersonalCenterVO : personalCenterVOS){
@@ -73,17 +102,14 @@ public class UserPersonalCenterServiceImpl implements IUserPersonalCenterService
             System.out.println("password = " + password);
         }
 
-        // 遍历列表中的每个SecurityPersonalVO对象并进行处理
-        for (SecurityPersonalVO securityPersonalVO : selectsecurity) {
-            // 访问SecurityPersonalVO对象的属性
-            question = securityPersonalVO.getQuestion();
-            answer = securityPersonalVO.getAnswer();
-            System.out.println("question = " + question);
-            System.out.println("answer = " + answer);
-        }
-
         // 用户输入的原密码 赋值给 PasswordJ
         String PasswordJ = userPersonalParam.getPasswordJ();
+
+        // 判断用户是否输入原密码
+        if (PasswordJ == null || PasswordJ.equals("")){
+            String message = "原密码不能为空!";
+            throw new ServiceException(ServiceCode.ERROR_SECURITY_QUESTION, message);
+        }
         // 判断原密码和用户输入的原密码是否一致
         if (encoder.matches(PasswordJ, password)) {
             // 判断密保
@@ -94,7 +120,7 @@ public class UserPersonalCenterServiceImpl implements IUserPersonalCenterService
                 String message = "请输入密保答案!";
                 throw new ServiceException(ServiceCode.ERROR_SECURITY_QUESTION, message);
             }
-            if (userPersonalParam.getQuestion().equals(question) && userPersonalParam.getAnswer().equals(answer)){
+            if (userPersonalParam.getQuestion().equals(selectsecurity.getQuestion()) && userPersonalParam.getAnswer().equals(selectsecurity.getAnswer())){
 
                 // 设置密码输入格式
                 String passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$";
@@ -108,7 +134,7 @@ public class UserPersonalCenterServiceImpl implements IUserPersonalCenterService
                 // 把用户输入的复制到user对象中
                 user.setPassword(encryptedPassword);
                 // 使用userPersonalParam对象进行更新
-                userPersonalCenterRepository.updateById(user);
+                userPersonalCenterRepository.updateInfoByUserId(user);
             }else {
                 String message = "密保问题或答案错误!";
                 throw new ServiceException(ServiceCode.ERROR_SECURITY_QUESTION, message);
