@@ -18,7 +18,7 @@ public class BookTest {
 
     @Test
     void listByCategoryId() {
-        Long categoryId = 6L;
+        Long categoryId = 3L;
         Integer pageNum = 1;
         Integer pageSize = 5;
 

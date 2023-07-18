@@ -4,6 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tedu.cn_tedu_v1.index.front.dao.persist.mapper.FrontMapper">
 
+    <update id="addBorrow">
+        update zhipian_book zb
+        set zb.borrowing_volume=zb.borrowing_volume+1
+        where id=#{id}
+    </update>
     <select id="selectList" resultMap="adListResultMap">
         SELECT za.id,
                za.name,

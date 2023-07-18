@@ -9,4 +9,6 @@ public interface ICategoryService {
 
 //    AdvertiseVO getAdverList();
     List<CategoryVO> selectCategory();
+
+    void addBorrow(Long id);
 }

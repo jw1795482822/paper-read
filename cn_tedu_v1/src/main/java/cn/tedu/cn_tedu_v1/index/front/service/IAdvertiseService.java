@@ -11,4 +11,5 @@ public interface IAdvertiseService {
 //    AdvertiseVO getAdverList();
     List<AdvertiseVO> selectList();
     List<BookBBVO> BookByBorrow();
+
 }

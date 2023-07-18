@@ -18,4 +18,6 @@ public interface FrontMapper extends BaseMapper<Advertise> {
     List<CategoryVO> selectCategory();
 
     List<BookBBVO> BookByBorrow();
+
+    void addBorrow(Long id );
 }

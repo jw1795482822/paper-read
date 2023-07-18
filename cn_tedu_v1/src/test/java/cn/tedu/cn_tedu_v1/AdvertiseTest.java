@@ -1,8 +1,10 @@
 package cn.tedu.cn_tedu_v1;
 
+import cn.tedu.cn_tedu_v1.index.category.service.CategoryService;
 import cn.tedu.cn_tedu_v1.index.front.dao.persist.mapper.FrontMapper;
 import cn.tedu.cn_tedu_v1.index.front.pojo.vo.AdvertiseVO;
 import cn.tedu.cn_tedu_v1.index.front.pojo.vo.CategoryVO;
+import cn.tedu.cn_tedu_v1.index.front.service.ICategoryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +19,14 @@ import java.util.List;
 public class AdvertiseTest {
     @Autowired
     FrontMapper mapper;
+    @Autowired
+    ICategoryService categoryService;
+    @Test
+    void addBorrow(){
+        Long id =1l;
+        categoryService.addBorrow(id);
+    }
+
     @Test
     void adver(){
 

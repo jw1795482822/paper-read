@@ -21,4 +21,9 @@ public class CategoryRepositoryImpl implements ICategoryRepository {
     public List<CategoryVO> selectCategory() {
         return mapper.selectCategory();
     }
+
+    @Override
+    public void addBorrow(Long id) {
+        mapper.addBorrow(id);
+    }
 }

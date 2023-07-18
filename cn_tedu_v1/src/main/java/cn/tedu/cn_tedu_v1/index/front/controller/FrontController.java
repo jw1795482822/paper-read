@@ -8,9 +8,7 @@ import cn.tedu.cn_tedu_v1.index.front.service.IAdvertiseService;
 import cn.tedu.cn_tedu_v1.index.front.service.ICategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -43,6 +41,13 @@ public class FrontController {
     public JsonResult BookByBorrow() {
         List<BookBBVO> list = service.BookByBorrow();
         return JsonResult.ok(list);
+    }
+    //增加浏览量
+    @PostMapping("/addBV")
+    public JsonResult AddBorrow(@RequestParam("id") Long id){
+        categoryService.addBorrow(id);
+        String message = "阅览量增加一次成功";
+        return JsonResult.ok(message);
     }
 
 }

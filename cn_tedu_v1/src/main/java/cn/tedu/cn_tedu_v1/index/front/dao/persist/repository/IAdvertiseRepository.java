@@ -11,4 +11,6 @@ public interface IAdvertiseRepository {
 
     List<BookBBVO> BookByBorrow();
 
+
+
 }

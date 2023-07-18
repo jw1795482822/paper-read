@@ -1,6 +1,8 @@
 package cn.tedu.cn_tedu_v1.index.front.service.impl;
 
+import cn.tedu.cn_tedu_v1.index.front.dao.persist.repository.IAdvertiseRepository;
 import cn.tedu.cn_tedu_v1.index.front.dao.persist.repository.ICategoryRepository;
+import cn.tedu.cn_tedu_v1.index.front.pojo.vo.BookBBVO;
 import cn.tedu.cn_tedu_v1.index.front.pojo.vo.CategoryVO;
 import cn.tedu.cn_tedu_v1.index.front.service.ICategoryService;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +16,8 @@ import java.util.List;
 public class CategoryServiceImpl implements ICategoryService {
     @Autowired
     ICategoryRepository repository;
-
+@Autowired
+    IAdvertiseRepository advertiseRepository;
 //    @Override
 //    public AdvertiseVO getAdverList() {
 //        return repository.getAdverList();
@@ -27,6 +30,9 @@ public class CategoryServiceImpl implements ICategoryService {
         return repository.selectCategory();
     }
 
+    @Override
+    public void addBorrow( Long id) {
 
-
+        repository.addBorrow(id);
+    }
 }
