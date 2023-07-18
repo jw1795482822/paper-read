@@ -5,6 +5,7 @@ import cn.tedu.cn_tedu_v1.personalcenter.dao.persist.mapper.UserPersonalCenterMa
 import cn.tedu.cn_tedu_v1.personalcenter.dao.persist.repository.IUserPersonalCenterRepository;
 import cn.tedu.cn_tedu_v1.personalcenter.pojo.entity.User;
 import cn.tedu.cn_tedu_v1.personalcenter.pojo.param.UserPersonalCenterParam;
+import cn.tedu.cn_tedu_v1.personalcenter.pojo.param.UserPersonalParam;
 import cn.tedu.cn_tedu_v1.personalcenter.pojo.vo.UserPersonalCenterVO;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
@@ -38,6 +39,11 @@ public class UserPersonalCenterRepositoryImpl implements IUserPersonalCenterRepo
         userPersonalCenterMapper.updateById(user);
     }
 
+    @Override
+    public void updateInfoByUserId(User user) {
+        log.debug("开始处理修改密码 {}" ,user);
+        userPersonalCenterMapper.updateById(user);
+    }
 
 
 }

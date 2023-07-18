@@ -14,5 +14,5 @@ public interface SecurityPersonalMapper extends BaseMapper<Security> {
      * @param userId 根据 用户Id 查询  用户的密报问题和答案
      * @return 受影响行数
      */
-    List<SecurityPersonalVO> selectsecurity(Long userId);
+    SecurityPersonalVO selectsecurity(Long userId);
 }
