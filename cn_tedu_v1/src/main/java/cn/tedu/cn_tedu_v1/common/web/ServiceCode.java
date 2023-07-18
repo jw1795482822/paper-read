@@ -15,6 +15,10 @@ public enum ServiceCode {
     /**
      * 错误：请求参数格式错误
      */
+    /**
+     * 订单未支付或支付异常，请重新支付
+     */
+    ERROR_NOT_PAY(30001),
     ERROR_BAD_REQUEST(40000),
     /**
      * 错误：数据不存在

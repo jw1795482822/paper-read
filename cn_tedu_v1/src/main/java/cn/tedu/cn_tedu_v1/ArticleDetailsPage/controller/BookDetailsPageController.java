@@ -1,9 +1,9 @@
 package cn.tedu.cn_tedu_v1.ArticleDetailsPage.controller;
 
 import cn.tedu.cn_tedu_v1.ArticleDetailsPage.pojo.vo.BookDetailsPageVO;
-import cn.tedu.cn_tedu_v1.ArticleDetailsPage.pojo.vo.DateVO;
 import cn.tedu.cn_tedu_v1.ArticleDetailsPage.service.IBookDetailsPageService;
 import cn.tedu.cn_tedu_v1.ArticleDetailsPage.service.IDateService;
+import cn.tedu.cn_tedu_v1.ArticleDetailsPage.service.IBookOrdersService;
 import cn.tedu.cn_tedu_v1.common.web.JsonResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,6 +23,9 @@ public class BookDetailsPageController {
     private IBookDetailsPageService bookDetailsPageService;
     @Autowired
     private IDateService dateService;
+    @Autowired
+    private IBookOrdersService ordersService;
+
     @GetMapping("/Basic-information/{id}")
     @ApiOperation("根据id查询文章基本信息")
     private JsonResult BookDetailsPage(@PathVariable Long id){
@@ -31,6 +34,15 @@ public class BookDetailsPageController {
         return JsonResult.ok(bookDetailsPageVO);
     }
 
+    @GetMapping("/limit/{userId}/{bookID}")
+    @ApiOperation("根据id查询文章内容信息")
+    private JsonResult SelectBytRadeStatus(@PathVariable Integer userId,@PathVariable Integer bookID){
+        log.warn("开始处理 根据userId和bookID查询是否有权限 userId：{}，bookID：{}",userId,bookID);
+        Integer tradeStatus = ordersService.SelectBytRadeStatus(userId, bookID);
+
+        log.debug("tradeStatus：{}",tradeStatus);
+        return JsonResult.ok(tradeStatus);
+    }
     @GetMapping("/Article-content/{id}")
     @ApiOperation("根据id查询文章内容信息")
     private JsonResult selectUrlByBookId(@PathVariable Long id){
@@ -38,4 +50,5 @@ public class BookDetailsPageController {
         log.debug("controller：{}",dateService.selectUrlByBookId(id));
         return JsonResult.ok(dateService.selectUrlByBookId(id));
     }
+
 }
