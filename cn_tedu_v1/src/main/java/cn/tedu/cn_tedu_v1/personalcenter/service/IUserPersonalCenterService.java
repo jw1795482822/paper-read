@@ -19,7 +19,7 @@ public interface IUserPersonalCenterService {
      *
      * @param userPersonalCenterParam 封装了被修改数据的ID和新数据的对象
      */
-    void updateInfoById(UserPersonalCenterParam userPersonalCenterParam);
+    void updateInfoById(Long id , UserPersonalCenterParam userPersonalCenterParam);
     /**
      * 修改密码
      *

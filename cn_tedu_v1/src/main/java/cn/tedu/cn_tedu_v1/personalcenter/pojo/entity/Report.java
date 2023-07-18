@@ -5,11 +5,12 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
 @TableName("zhipian_report")
-public class Report {
+public class Report implements Serializable {
     /**
      * 唯一标识
      */

@@ -38,13 +38,19 @@ public class UserPersonalCenterServiceImpl implements IUserPersonalCenterService
     }
 
     @Override
-    public void updateInfoById(UserPersonalCenterParam userPersonalCenterParam) {
+    public void updateInfoById(Long id , UserPersonalCenterParam userPersonalCenterParam) {
         User user = new User();
         BeanUtils.copyProperties(userPersonalCenterParam, user);
-        user.setId(userPersonalCenterParam.getId());
+        user.setId(id);
 
         // 设置性别输入格式
         String gender = "^(男|女)$";
+
+        //判断 用户是否输入
+        if (userPersonalCenterParam.getGender() == null){
+            String message = "性别不能为空!";
+            throw new ServiceException(ServiceCode.ERROR_SECURITY_QUESTION, message);
+        }
         // 判断性别是否符合格式
         if (!userPersonalCenterParam.getGender().matches(gender)) {
             String message = "请输入 '男' 或 '女' ";
@@ -64,8 +70,8 @@ public class UserPersonalCenterServiceImpl implements IUserPersonalCenterService
             throw new ServiceException(ServiceCode.ERROR_SECURITY_QUESTION, message);
         }
 
-        // TODO 数据库身份号数据类型为整数    实际需要String 类型
-//        // TODO 设置身份证号输入格式
+          // TODO 数据库身份号数据类型为整数    实际需要String 类型
+//        // 设置身份证号输入格式
 //        String idCardNumber = "^\\d{17}(\\d|X|x)$";
 //        // 判断身份证号是否符合格式
 //        if (!userPersonalCenterParam.getId_number().matches(idCardNumber)) {

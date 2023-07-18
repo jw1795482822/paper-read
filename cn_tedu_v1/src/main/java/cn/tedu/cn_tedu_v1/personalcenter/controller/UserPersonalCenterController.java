@@ -45,9 +45,9 @@ public class UserPersonalCenterController {
     @ApiOperationSupport(order = 300)
     @PreAuthorize("hasAuthority('admin')")
     @PostMapping("/{id}/update/info")
-    public JsonResult updateInfoById(@RequestBody @Validated UserPersonalCenterParam userPersonalCenterParam) {
+    public JsonResult updateInfoById(@RequestBody @Validated UserPersonalCenterParam userPersonalCenterParam , Long id ) {
         log.debug("开始处理【修改个人信息】的请求，参数：{}", userPersonalCenterParam);
-        userPersonalCenterService.updateInfoById(userPersonalCenterParam);
+        userPersonalCenterService.updateInfoById(id ,userPersonalCenterParam);
         return JsonResult.ok();
     }
 
