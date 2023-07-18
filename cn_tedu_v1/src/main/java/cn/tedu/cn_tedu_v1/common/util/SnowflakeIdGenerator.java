@@ -1,6 +1,7 @@
-package cn.tedu.cn_tedu_v1.userv1;
+package cn.tedu.cn_tedu_v1.common.util;
 
 /**
+ * 雪花算法
  * Author = bianmy
  * DATE = 2023/6/8 16:02
  */

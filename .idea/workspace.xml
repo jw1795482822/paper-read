@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3371dbda-6325-462f-89a2-412fac4d7bce" name="Changes" comment="图书详情功能修改">
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/dao/mapper/OrdersMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/dao/repository/IOrdersRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/dao/repository/impl/OrdersRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/pojo/entity/Orders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/service/IOrdersService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/service/impl/OrdersServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/common/consts/ApiPayConsts.java" afterDir="false" />
+    <list default="true" id="3371dbda-6325-462f-89a2-412fac4d7bce" name="Changes" comment="增加支付宝沙箱统一支付和回调功能">
+      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/controller/TraceNoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_7_10_19_50_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_7_10_19_50__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/AliPay.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/pojo/entity/AliPay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/AliPayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/controller/AliPayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/common/web/ServiceCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/common/web/ServiceCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/core/config/MybatisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/core/config/MybatisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/userv1/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/userv1/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/userv1/SnowflakeIdGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/common/util/SnowflakeIdGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/userv1/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/userv1/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,10 +65,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
     "spring.configuration.checksum": "18609bf9aa28f03c33be023e87d76e99",
     "vue.rearranger.settings.migration": "true"
   },
@@ -357,7 +350,8 @@
       <workItem from="1689514271448" duration="1983000" />
       <workItem from="1689554152703" duration="87000" />
       <workItem from="1689579739164" duration="1086000" />
-      <workItem from="1689589868717" duration="12006000" />
+      <workItem from="1689589868717" duration="12075000" />
+      <workItem from="1689640427211" duration="1195000" />
     </task>
     <task id="LOCAL-00001" summary="第二次测试">
       <created>1685967875811</created>
@@ -541,7 +535,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689415375843</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="增加支付宝沙箱统一支付和回调功能">
+      <created>1689612574719</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1689612574719</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -610,7 +611,8 @@
     <MESSAGE value="首页白名单配置" />
     <MESSAGE value="支付宝支付" />
     <MESSAGE value="图书详情功能修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="图书详情功能修改" />
+    <MESSAGE value="增加支付宝沙箱统一支付和回调功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加支付宝沙箱统一支付和回调功能" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -627,5 +629,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

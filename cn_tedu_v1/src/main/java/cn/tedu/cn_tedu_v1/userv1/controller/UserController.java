@@ -1,7 +1,7 @@
 package cn.tedu.cn_tedu_v1.userv1.controller;
 
 
-import cn.tedu.cn_tedu_v1.userv1.SnowflakeIdGenerator;
+import cn.tedu.cn_tedu_v1.common.util.SnowflakeIdGenerator;
 import cn.tedu.cn_tedu_v1.userv1.mapper.EmailForGetMapper;
 import cn.tedu.cn_tedu_v1.userv1.mapper.SecurityMapper;
 import cn.tedu.cn_tedu_v1.userv1.mapper.UserMapper;
@@ -49,7 +49,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Slf4j
 public class UserController {
 
-    //static AtomicInteger times = new AtomicInteger(3);
+
     static AtomicInteger verification = new AtomicInteger(3);
 
     @Autowired
@@ -133,7 +133,7 @@ public class UserController {
         User user = new User();
         BeanUtils.copyProperties(userRegDTO, user);
         user.setCreateTime(new Date());
-        //生成用户ID
+        //生成用户ID，雪花算法
         SnowflakeIdGenerator idGenerator = new SnowflakeIdGenerator(1, 1);
         user.setUserId(idGenerator.nextId());
 
@@ -257,7 +257,6 @@ public class UserController {
     /**
      * 忘记密码邮箱修改密码业务逻辑
      * @param emailDTO 用户输入的邮箱
-     * @param session 服务器缓存
      * @return 给前端返回响应对象
      */
     @PostMapping("forget-email")
@@ -335,17 +334,5 @@ public class UserController {
         return null;
     }
 
-    //判断times登录错误次数,用于抛出对应异常
-//    public ResultVO NumberOfJudgments(int times) {
-//        switch (times) {
-//            case 2:
-//                return new ResultVO(StatusCode.PASSWORD_ERROR_TWICE);
-//            case 1:
-//                return new ResultVO(StatusCode.PASSWORD_ERROR_ONCE);
-//            case 0:
-//                return new ResultVO(StatusCode.PASSWORD_ERROR);
-//        }
-//
-//        return null;
-//    }
+
 }
