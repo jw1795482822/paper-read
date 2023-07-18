@@ -53,7 +53,14 @@ public enum ServiceCode {
     ERROR_DELETE(50100),
 
 
+
+
     ERROR_UPDATE(50200),
+
+    /**
+     * 参数不能为空
+     */
+    ERROR_NOT_NULL(8888),
     /**
      * 错误：其它异常
      */
