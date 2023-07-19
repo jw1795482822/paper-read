@@ -1,13 +1,18 @@
 package cn.tedu.cn_tedu_v1.ArticleDetailsPage.pojo.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
 @Data
+@TableName(value = "zhipian_orders")
 public class BookOrders implements Serializable {
     /**
      * 主键ID
      */
+    @TableId(type = IdType.AUTO)
     private Integer id;
     /**
      *买家订单编号

@@ -43,11 +43,6 @@ public class AliPayController implements ApiPayConsts {
 
 
 
-
-
-
-
-
     @GetMapping("/pay") // &subject=xxx&traceNo=xxx&totalAmount=xxx
     public void pay(AliPay aliPay, HttpServletResponse httpResponse) throws Exception {
         log.info("支付宝controller接受请求参数:{}", aliPay);
