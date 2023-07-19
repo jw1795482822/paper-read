@@ -38,11 +38,7 @@ public class UserPersonalCenterServiceImpl implements IUserPersonalCenterService
     }
 
     @Override
-    public void updateInfoById(Long id , UserPersonalCenterParam userPersonalCenterParam) {
-        User user = new User();
-        BeanUtils.copyProperties(userPersonalCenterParam, user);
-        user.setId(id);
-
+    public void updateInfoById(UserPersonalCenterParam userPersonalCenterParam) {
         // 设置性别输入格式
         String gender = "^(男|女)$";
 
@@ -84,6 +80,10 @@ public class UserPersonalCenterServiceImpl implements IUserPersonalCenterService
             String message = "昵称不能为空!";
             throw new ServiceException(ServiceCode.ERROR_UPLOAD_EMPTY, message);
         }
+
+        User user = new User();
+        BeanUtils.copyProperties(userPersonalCenterParam, user);
+        user.setId(userPersonalCenterParam.getId());
         userPersonalCenterRepository.updateById(user);
     }
 

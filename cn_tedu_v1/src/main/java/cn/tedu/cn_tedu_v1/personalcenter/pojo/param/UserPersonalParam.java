@@ -26,7 +26,7 @@ public class UserPersonalParam {
     /**
      * 用户Id
      */
-    private Long userID;
+    private Long id;
 
     /**
      * 用户输入的原密码 用作对比不存入数据库

@@ -21,24 +21,23 @@ public class UserPersonalCenterParam {
      * 昵称
      */
     @NotNull(message = "请提交用户昵称")
-    @NotBlank(message = "字段不能为空")
-    @Pattern(regexp = "^[a-zA-Z\\u4e00-\\u9fa5]{2,10}$",
+   @Pattern(regexp = "^[a-zA-Z\\u4e00-\\u9fa5]{2,10}$",
             message = "用户昵称必须是2~10长度的字符组成，且不允许使用标点符号")
     @ApiModelProperty(value = "用户昵称", required = true)
-    private String nick_name;
+    private String nickName;
     /**
      * 性别
      */
-    @Pattern(regexp = "^[\\u4e00-\\u9fa5]+$" , message = "滚!")
+    @Pattern(regexp = "^(男|女)$" , message = "滚!")
     private String gender;
     /**
      * 手机号
      */
-    private String phone_number;
+    private String phoneNumber;
     /**
      * 身份证号码
      */
-    private Long id_number;
+    private Long idnumber;
     /**
      * 用户id
      */
