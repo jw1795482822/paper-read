@@ -21,8 +21,6 @@ public class UserPersonalCenterParam {
      * 昵称
      */
     @NotNull(message = "请提交用户昵称")
-   @Pattern(regexp = "^[a-zA-Z\\u4e00-\\u9fa5]{2,10}$",
-            message = "用户昵称必须是2~10长度的字符组成，且不允许使用标点符号")
     @ApiModelProperty(value = "用户昵称", required = true)
     private String nickName;
     /**
@@ -42,6 +40,10 @@ public class UserPersonalCenterParam {
      * 用户id
      */
     private Long id;
+    /**
+     * 用于存储雪花算法生成唯一标识
+     */
+    private Long userId;
     /**
      * 最后修改时间
      */

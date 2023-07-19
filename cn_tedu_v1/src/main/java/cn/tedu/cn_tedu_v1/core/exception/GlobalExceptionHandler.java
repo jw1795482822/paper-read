@@ -1,6 +1,9 @@
 package cn.tedu.cn_tedu_v1.core.exception;
 
 
+import cn.tedu.cn_tedu_v1.common.ex.ServiceException;
+import cn.tedu.cn_tedu_v1.common.web.JsonResult;
+import cn.tedu.cn_tedu_v1.common.web.ServiceCode;
 import cn.tedu.cn_tedu_v1.userv1.response.ResultVO;
 import cn.tedu.cn_tedu_v1.userv1.response.StatusCode;
 
@@ -11,10 +14,13 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.validation.BindException;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-
+import java.util.List;
+import java.util.StringJoiner;
 
 
 /**
@@ -49,14 +55,18 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler
+
     public ResultVO handleAccessDeniedException(AccessDeniedException e) {
         log.debug("全局异常处理器开始处理AccessDeniedException");
 
         return new ResultVO(StatusCode.FORBIDDEN_ERROR);
     }
 
-
-
+    @ExceptionHandler
+    public JsonResult handleServiceException(ServiceException e) {
+        log.debug("全局异常处理器开始处理ServiceException");
+        return JsonResult.fail(e);
+    }
 
 
 }

@@ -42,13 +42,13 @@ public class JsonResult {
         return jsonResult;
     }
 
-//    public static JsonResult fail(ServiceException e) {
-//        // JsonResult jsonResult = new JsonResult();
-//        // jsonResult.setState(e.getServiceCode().getValue());
-//        // jsonResult.setMessage(e.getMessage());
-//        // return jsonResult;
-//        return fail(e.getServiceCode(), e.getMessage());
-//    }
+    public static JsonResult fail(ServiceException e) {
+        // JsonResult jsonResult = new JsonResult();
+        // jsonResult.setState(e.getServiceCode().getValue());
+        // jsonResult.setMessage(e.getMessage());
+        // return jsonResult;
+        return fail(e.getServiceCode(), e.getMessage());
+    }
 
     public static JsonResult fail(ServiceCode serviceCode, String message) {
         JsonResult jsonResult = new JsonResult();
