@@ -9,4 +9,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface OrdersMapper extends BaseMapper<Orders> {
 
+    /**
+     * 根据用户ID查询支付成功的订单数量
+     * @return 订单数量
+     */
+    int selectByUserId(Integer userId);
+
 }

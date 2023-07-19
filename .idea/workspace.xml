@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3371dbda-6325-462f-89a2-412fac4d7bce" name="Changes" comment="增加生成雪花算法唯一ID方法">
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/favorites/controller/FavoritesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/favorites/dao/mapper/FavoritesMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/favorites/dao/repository/IFavoritesRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/favorites/dao/repository/impl/FavoritesRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/favorites/pojo/entity/Favorites.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/favorites/pojo/vo/FavoritesVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/favorites/service/IFavoritesService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/favorites/service/impl/FavoritesServiceImpl.java" afterDir="false" />
+    <list default="true" id="3371dbda-6325-462f-89a2-412fac4d7bce" name="Changes" comment="根据用户ID查找用户支付成功订单">
+      <change afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/resources/mappers/alipay/OrdersMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/common/web/ServiceCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/common/web/ServiceCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/core/config/MybatisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/core/config/MybatisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/controller/AliPayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/controller/AliPayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/dao/mapper/OrdersMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/dao/mapper/OrdersMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/dao/repository/IOrdersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/dao/repository/IOrdersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/dao/repository/impl/OrdersRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/dao/repository/impl/OrdersRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/service/IOrdersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/service/IOrdersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/service/impl/OrdersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/java/cn/tedu/cn_tedu_v1/alipay/service/impl/OrdersServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cn_tedu_v1/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cn_tedu_v1/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,45 +51,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/ideaproject/me/paper-read-admin/back-stage-management&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;18609bf9aa28f03c33be023e87d76e99&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/ideaproject/me/paper-read1/cn_tedu_v1/src/main/resources/mappers/alipay",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "spring.configuration.checksum": "18609bf9aa28f03c33be023e87d76e99",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="cn.tedu.cn_tedu_v1.userv1.pojo.dto" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\ideaproject\me\paper-read1\cn_tedu_v1\src\main\resources\mappers\alipay" />
       <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\java\cn\tedu\cn_tedu_v1\common" />
       <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\java\cn\tedu\cn_tedu_v1\comment" />
       <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\java\cn\tedu\cn_tedu_v1\comment\consts" />
       <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\resources\mappers" />
-      <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\resources\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\ideaproject\leicai\paper-read1\cn_tedu_v1\src\main\java\cn\tedu\cn_tedu_v1" />
@@ -358,7 +354,11 @@
       <workItem from="1689579739164" duration="1086000" />
       <workItem from="1689589868717" duration="12075000" />
       <workItem from="1689640427211" duration="1622000" />
-      <workItem from="1689673243420" duration="4247000" />
+      <workItem from="1689673243420" duration="6496000" />
+      <workItem from="1689692646533" duration="1937000" />
+      <workItem from="1689726701630" duration="22000" />
+      <workItem from="1689727462368" duration="19000" />
+      <workItem from="1689758646423" duration="1491000" />
     </task>
     <task id="LOCAL-00001" summary="第二次测试">
       <created>1685967875811</created>
@@ -556,7 +556,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689641777377</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="增加收藏夹相关方法">
+      <created>1689677525945</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1689677525945</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -602,8 +609,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="第二次测试" />
-    <MESSAGE value="登陆注册代码上传" />
     <MESSAGE value="登陆注册代码第二次修改:前端增加正则表达式,因数据库发生变化修改字段" />
     <MESSAGE value="登陆注册代码第三次修改:后端增加邮箱发送验证码注册功能" />
     <MESSAGE value="登陆注册代码第四次修改:后端增加邮箱注册验证,验证邮箱唯一性,增加必要的注解" />
@@ -627,7 +632,9 @@
     <MESSAGE value="图书详情功能修改" />
     <MESSAGE value="增加支付宝沙箱统一支付和回调功能" />
     <MESSAGE value="增加生成雪花算法唯一ID方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加生成雪花算法唯一ID方法" />
+    <MESSAGE value="增加收藏夹相关方法" />
+    <MESSAGE value="根据用户ID查找用户支付成功订单" />
+    <option name="LAST_COMMIT_MESSAGE" value="根据用户ID查找用户支付成功订单" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XDebuggerManager">

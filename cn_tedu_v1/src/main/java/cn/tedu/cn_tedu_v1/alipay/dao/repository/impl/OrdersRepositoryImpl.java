@@ -26,14 +26,32 @@ public class OrdersRepositoryImpl implements IOrdersRepository {
     @Autowired
     private OrdersMapper ordersMapper;
 
+    /**
+     * 用户发起付款插入数据
+     * @param orders 订单实体类
+     * @return 插入数量
+     */
     @Override
     public int insert(Orders orders) {
 
         return ordersMapper.insert(orders);
     }
 
+    /**
+     * 根据返回订单状态修改订单信息
+     */
     @Override
     public int update(Orders orders, QueryWrapper<Orders> queryWrapper) {
         return ordersMapper.update(orders, queryWrapper);
+    }
+
+    /**
+     * 根据用户ID查找支付成功订单
+     * @param userId 用户ID
+     * @return
+     */
+    @Override
+    public int selectByUserId(Integer userId) {
+        return ordersMapper.selectByUserId(userId);
     }
 }

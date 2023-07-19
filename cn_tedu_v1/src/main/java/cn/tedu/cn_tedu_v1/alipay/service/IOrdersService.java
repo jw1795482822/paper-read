@@ -27,4 +27,9 @@ public interface IOrdersService {
      * 根据回调接口传来的参数修改订单信息
      */
     int payNotify(HttpServletRequest request) throws AlipayApiException;
+
+    /**
+     * 根据用户ID查找支付成功订单
+     */
+    int selectByUserId(Integer userId);
 }
