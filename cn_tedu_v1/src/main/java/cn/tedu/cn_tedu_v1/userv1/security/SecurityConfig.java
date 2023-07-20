@@ -107,7 +107,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/v1/bookDetailsPage/limit/{userId}/{bookID}",
                 "/v1/snowflake/",
                 "/alipay/pay",
-                "v1/favorites/**"
+                "v1/favorites/**",
+                "/v1/BookOrderse/**"
         };
 
         // 配置请求授权
