@@ -25,6 +25,7 @@ public class BookDetailsPageServiceImpl implements IBookDetailsPageService {
 
         //待写规则
         BookDetailsPageVO bookDetailsPageVO = new BookDetailsPageVO()
+                .setLibraryId(bookDetailsPage.getLibraryId())
                 .setId(bookDetailsPage.getId())
                 .setName(bookDetailsPage.getName())
                 .setAuthor(bookDetailsPage.getAuthor())

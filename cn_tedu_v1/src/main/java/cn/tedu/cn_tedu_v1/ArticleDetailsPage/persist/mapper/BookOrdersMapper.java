@@ -7,7 +7,5 @@ import org.springframework.stereotype.Repository;
 //支付订单表
 @Repository
 public interface BookOrdersMapper extends BaseMapper<BookOrders> {
-//查询是否拥有此书
-    Integer SelectBytRadeStatus(Integer userId,Integer bookID);
 
 }

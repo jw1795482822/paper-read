@@ -17,6 +17,10 @@ public class BookDetailsPageVO implements Serializable {
      * */
     private Long id;
     /**
+     * 图书馆id
+     */
+    private Long libraryId;
+    /**
      * 书名
      * */
     private String name;
