@@ -26,7 +26,7 @@ public class UserPersonalCenterParam {
     /**
      * 性别
      */
-    @Pattern(regexp = "^(男|女)$" , message = "滚!")
+    @Pattern(regexp = "^(男|女)$" , message = "请输入 '男' 或 '女' ")
     private String gender;
     /**
      * 手机号

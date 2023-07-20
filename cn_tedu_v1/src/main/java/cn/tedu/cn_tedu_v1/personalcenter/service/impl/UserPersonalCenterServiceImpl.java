@@ -41,7 +41,6 @@ public class UserPersonalCenterServiceImpl implements IUserPersonalCenterService
     public void updateInfoById(UserPersonalCenterParam userPersonalCenterParam) {
         // 设置性别输入格式
         String gender = "^(男|女)$";
-
         //判断 用户是否输入
         if (userPersonalCenterParam.getGender() == null){
             String message = "性别不能为空!";

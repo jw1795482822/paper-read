@@ -1,6 +1,7 @@
 package cn.tedu.cn_tedu_v1.personalcenter.controller;
 
 import cn.tedu.cn_tedu_v1.common.web.JsonResult;
+import cn.tedu.cn_tedu_v1.common.web.ServiceCode;
 import cn.tedu.cn_tedu_v1.personalcenter.dao.persist.repository.ISecurityPersonalRepository;
 import cn.tedu.cn_tedu_v1.personalcenter.pojo.param.UserPersonalCenterParam;
 import cn.tedu.cn_tedu_v1.personalcenter.pojo.param.UserPersonalParam;
@@ -14,7 +15,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.ServerSocket;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * wsk
@@ -26,9 +29,6 @@ public class UserPersonalCenterController {
     @Autowired
     private IUserPersonalCenterService userPersonalCenterService;
 
-
-    @Autowired
-    private ISecurityPersonalRepository securityPersonalRepository;
 
     @ApiOperation("查看个人信息")
     @ApiOperationSupport(order = 311)

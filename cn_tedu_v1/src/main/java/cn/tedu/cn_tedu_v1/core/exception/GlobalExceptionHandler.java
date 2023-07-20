@@ -68,5 +68,17 @@ public class GlobalExceptionHandler {
         return JsonResult.fail(e);
     }
 
+    @ExceptionHandler
+    public JsonResult handleBindException(BindException e) {
+        log.debug("全局异常处理器开始处理BindException");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("请求参数格式错误,");
+        stringBuilder.append(e.getFieldError().getDefaultMessage());
+        stringBuilder.append("！");
+        String message = stringBuilder.toString();
+        log.warn(message);
+        return JsonResult.fail(ServiceCode.ERROR_BAD_REQUEST, message);
+    }
+
 
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.cn_tedu_v1.personalcenter.dao.persist.mapper.ReportOneMapper">
+
+
+
+<!--    ReportOneVO selectReport(Long id);-->
+    <select id="selectReport" resultMap="UserPersonalCenterMap">
+        SELECT gmt_modified
+        FROM zhipian_shop.zhipian_report
+        WHERE book_id = #{bookId} AND user_id = #{userId}
+        ORDER BY gmt_modified DESC
+        LIMIT 1
+    </select>
+
+    <resultMap id="UserPersonalCenterMap" type="cn.tedu.cn_tedu_v1.personalcenter.pojo.vo.ReportOneVO">
+        <result column="gmt_modified" property="gmtModified"/>
+    </resultMap>
+</mapper>
