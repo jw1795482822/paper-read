@@ -8,6 +8,7 @@ import cn.tedu.cn_tedu_v1.index.front.service.IAdvertiseService;
 import cn.tedu.cn_tedu_v1.index.front.service.ICategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -43,11 +44,12 @@ public class FrontController {
         return JsonResult.ok(list);
     }
     //增加浏览量
-    @PostMapping("/addBV")
-    public JsonResult AddBorrow(@RequestParam("id") Long id){
+    @PostMapping("/addBV/{id}")
+    public JsonResult AddBorrow(@PathVariable Long id){
         categoryService.addBorrow(id);
         String message = "阅览量增加一次成功";
-        return JsonResult.ok(message);
+        log.debug(message);
+        return JsonResult.ok();
     }
 
 }
