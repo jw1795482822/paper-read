@@ -23,11 +23,11 @@ public class User implements Serializable {
     /**
      * 用户名
      */
-    private String user_name;
+    private String userName;
     /**
      * 昵称
      */
-    private String nick_name;
+    private String nickName;
     /**
      * 密码
      */
@@ -44,11 +44,11 @@ public class User implements Serializable {
     /**
      * 手机号
      */
-    private String phone_number;
+    private String phoneNumber;
     /**
      * 省份证号码
      */
-    private Long id_number;
+    private Long idNumber;
     /**
      * 账户余额
      */
@@ -56,7 +56,7 @@ public class User implements Serializable {
     /**
      * 邮箱
      */
-    private String e_mail;
+    private String email;
     /**
      * 创建时间
      */
@@ -68,7 +68,7 @@ public class User implements Serializable {
     /**
      * 用于存储雪花算法生成唯一标识,暂时用到
      */
-    private Long user_id;
+    private Long userId;
     /**
      * 最后修改时间
      */

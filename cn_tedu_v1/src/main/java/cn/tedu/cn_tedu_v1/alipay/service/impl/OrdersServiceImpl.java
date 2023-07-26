@@ -146,5 +146,15 @@ public class OrdersServiceImpl implements IOrdersService, ApiPayConsts {
 
     }
 
+    /**
+     * 根据用户ID查找支付成功订单
+     * @param userId 用户ID
+     * @return
+     */
+    @Override
+    public int selectByUserId(Integer userId) {
+        return ordersRepository.selectByUserId(userId);
+    }
+
 
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.cn_tedu_v1.alipay.dao.mapper.OrdersMapper">
+    <select id="selectByUserId" parameterType="int">
+        SELECT COUNT(*)
+        FROM zhipian_shop.zhipian_orders
+        WHERE user_id = #{userId} AND trade_status = 2
+    </select>
+
+
+</mapper>

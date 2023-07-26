@@ -21,4 +21,9 @@ public interface IOrdersRepository {
      * 根据返回订单状态修改订单信息
      */
     int update(Orders orders, QueryWrapper<Orders> queryWrapper);
+
+    /**
+     * 根据用户ID查找成功支付订单
+     */
+    int selectByUserId(Integer userId);
 }

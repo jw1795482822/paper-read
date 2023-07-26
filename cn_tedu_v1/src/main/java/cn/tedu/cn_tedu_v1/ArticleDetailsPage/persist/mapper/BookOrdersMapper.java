@@ -8,6 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BookOrdersMapper extends BaseMapper<BookOrders> {
 
-    Integer SelectBytRadeStatus(Integer userId,Integer bookID);
-
 }
